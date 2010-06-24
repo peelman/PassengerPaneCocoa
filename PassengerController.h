@@ -14,7 +14,7 @@
 
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
-	IBOutlet SFAuthorizationView *authView;
+//	IBOutlet SFAuthorizationView *authView;
 	IBOutlet NSImageView *advancedAlertImage;
 	IBOutlet NSButton *advancedButton;
 	
@@ -39,8 +39,8 @@
 
 -(void)setupAuthorizationView;
 -(IBAction)authorize:(id)sender;
--(IBAction)startApplication:(id)sender;
--(IBAction)stopApplication:(id)sender;
--(IBAction)restartApplication:(id)sender;
+-(IBAction)startApplications:(id)sender;
+-(IBAction)stopApplications:(id)sender;
+-(IBAction)restartApplications:(id)sender;
 
 @end

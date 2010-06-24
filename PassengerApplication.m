@@ -14,9 +14,19 @@
 @synthesize name, address, path, aliases, railsMode, isRunning;
 
 
+-(id)init
+{
+	if (![super init])
+		return nil;
+	
+	isRunning = NO;
+	
+	return self;
+}
+
 -(void)startApplication
 {
-	isRunning = YES:
+	isRunning = YES;
 }
 
 -(void)stopApplication

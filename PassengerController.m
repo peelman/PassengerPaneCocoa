@@ -15,23 +15,24 @@
 -(id)init
 {
 	if (![super init])
-		return;
+		return nil;
 	
-	
+	return self;
 }
 
--(id)awakeFromNib
+-(void)awakeFromNib
 {
+	[advancedAlertImage setHidden:YES];
 	[self setupAuthorizationView];
 }
 
 -(void)setupAuthorizationView
 {
     authorized = NO;
-    [authView setStringValue:kAuthorizationRightExecute]
-    [authView setDelegate:self];
-    [authView updateStatus:NO];
-	[authView setAutoUpdate:YES];
+//    [authView setStringValue:kAuthorizationRightExecute]
+//    [authView setDelegate:self];
+//    [authView updateStatus:NO];
+//	[authView setAutoUpdate:YES];
 }
 
 -(IBAction)authorize:(id)sender
@@ -48,12 +49,14 @@
 
 -(IBAction)stopApplications:(id)sender
 {
-	
+	for (PassengerApplication *site in [sites selectedObjects])
+		[site stopApplication];
 }
 
 -(IBAction)restartApplications:(id)sender
 {
-	
+	for (PassengerApplication *site in [sites selectedObjects])
+		[site restartApplication];
 }
 
 
