@@ -19,6 +19,11 @@
 	
 }
 
+-(id)awakeFromNib
+{
+	[self setupAuthorizationView];
+}
+
 -(void)setupAuthorizationView
 {
     authorized = NO;
