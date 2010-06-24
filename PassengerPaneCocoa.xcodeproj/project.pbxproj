@@ -10,6 +10,7 @@
 		3EEF3FC511D3B2C2005FBAF1 /* AlertCautionIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF3FC211D3B2C2005FBAF1 /* AlertCautionIcon.icns */; };
 		3EEF3FC611D3B2C2005FBAF1 /* AlertNoteIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF3FC311D3B2C2005FBAF1 /* AlertNoteIcon.icns */; };
 		3EEF3FC711D3B2C2005FBAF1 /* AlertStopIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF3FC411D3B2C2005FBAF1 /* AlertStopIcon.icns */; };
+		3EEF425911D410EE005FBAF1 /* OpenDirectory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEF425811D410EE005FBAF1 /* OpenDirectory.framework */; };
 		8D202CEA0486D31800D8A456 /* PassengerPaneCocoa_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* PassengerPaneCocoa_Prefix.pch */; };
 		8D202CEB0486D31800D8A456 /* PassengerPaneCocoaPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* PassengerPaneCocoaPref.h */; };
 		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
@@ -34,6 +35,7 @@
 		3EEF3FC211D3B2C2005FBAF1 /* AlertCautionIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AlertCautionIcon.icns; sourceTree = "<group>"; };
 		3EEF3FC311D3B2C2005FBAF1 /* AlertNoteIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AlertNoteIcon.icns; sourceTree = "<group>"; };
 		3EEF3FC411D3B2C2005FBAF1 /* AlertStopIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AlertStopIcon.icns; sourceTree = "<group>"; };
+		3EEF425811D410EE005FBAF1 /* OpenDirectory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenDirectory.framework; path = System/Library/Frameworks/OpenDirectory.framework; sourceTree = SDKROOT; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* PassengerPaneCocoa.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassengerPaneCocoa.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		990CB30B11D30EA400B21EE0 /* PassengerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerController.h; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
 				990CB3A511D31BE700B21EE0 /* SecurityInterface.framework in Frameworks */,
+				3EEF425911D410EE005FBAF1 /* OpenDirectory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +75,8 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
-				990CB30B11D30EA400B21EE0 /* PassengerController.h */,
-				990CB30C11D30EA400B21EE0 /* PassengerController.m */,
 				990CB3A411D31BE700B21EE0 /* SecurityInterface.framework */,
+				3EEF425811D410EE005FBAF1 /* OpenDirectory.framework */,
 			);
 			name = PassengerPaneCocoa;
 			sourceTree = "<group>";
@@ -105,6 +107,8 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				990CB30B11D30EA400B21EE0 /* PassengerController.h */,
+				990CB30C11D30EA400B21EE0 /* PassengerController.m */,
 				990CB31211D30F1900B21EE0 /* PassengerApplication.h */,
 				990CB31311D30F1900B21EE0 /* PassengerApplication.m */,
 				F506C03C013D9D7901CA16C8 /* PassengerPaneCocoaPref.h */,

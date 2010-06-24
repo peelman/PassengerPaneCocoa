@@ -8,6 +8,7 @@
 
 #import "PassengerApplication.h"
 
+#import <OpenDirectory/OpenDirectory.h>
 
 @implementation PassengerApplication
 
@@ -37,6 +38,11 @@
 -(void)restartApplication
 {
 	[self setIsRunning:YES];	
+}
+
+-(void)createHost:(NSString *)hostName
+{
+	
 }
 
 @end
