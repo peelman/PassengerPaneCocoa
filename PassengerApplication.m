@@ -11,7 +11,7 @@
 
 @implementation PassengerApplication
 
-@synthesize name, address, path, aliases, rakeMode, isRunning;
+@synthesize name, address, port, path, aliases, rakeMode, isRunning;
 
 
 -(id)init

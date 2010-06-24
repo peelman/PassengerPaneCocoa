@@ -10,13 +10,13 @@
 
 
 @interface PassengerApplication : NSObject {
-	NSString *name, *address, *path;
+	NSString *name, *address, *port, *path;
 	NSArrayController *aliases;
 	NSNumber *rakeMode;
 	BOOL isRunning;
 	
 }
-@property (copy) NSString *name, *address, *path;
+@property (copy) NSString *name, *address, *port, *path;
 @property (retain) NSArrayController *aliases;
 @property (copy) NSNumber *rakeMode;
 @property BOOL isRunning;
