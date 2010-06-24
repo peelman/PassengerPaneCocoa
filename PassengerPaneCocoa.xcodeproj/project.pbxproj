@@ -22,8 +22,6 @@
 		990CB30E11D30EA400B21EE0 /* PassengerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB30C11D30EA400B21EE0 /* PassengerController.m */; };
 		990CB31411D30F1900B21EE0 /* PassengerApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB31211D30F1900B21EE0 /* PassengerApplication.h */; };
 		990CB31511D30F1900B21EE0 /* PassengerApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB31311D30F1900B21EE0 /* PassengerApplication.m */; };
-		990CB36511D316AF00B21EE0 /* SecurityHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB36311D316AF00B21EE0 /* SecurityHelper.h */; };
-		990CB36611D316AF00B21EE0 /* SecurityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB36411D316AF00B21EE0 /* SecurityHelper.m */; };
 		990CB3A511D31BE700B21EE0 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990CB3A411D31BE700B21EE0 /* SecurityInterface.framework */; };
 		990CB3AD11D31C0600B21EE0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990CB3AC11D31C0600B21EE0 /* Security.framework */; };
 /* End PBXBuildFile section */
@@ -166,7 +164,6 @@
 				8D202CEB0486D31800D8A456 /* PassengerPaneCocoaPref.h in Headers */,
 				990CB30D11D30EA400B21EE0 /* PassengerController.h in Headers */,
 				990CB31411D30F1900B21EE0 /* PassengerApplication.h in Headers */,
-				990CB36511D316AF00B21EE0 /* SecurityHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +241,6 @@
 				8D202CF10486D31800D8A456 /* PassengerPaneCocoaPref.m in Sources */,
 				990CB30E11D30EA400B21EE0 /* PassengerController.m in Sources */,
 				990CB31511D30F1900B21EE0 /* PassengerApplication.m in Sources */,
-				990CB36611D316AF00B21EE0 /* SecurityHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +303,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -322,7 +318,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
