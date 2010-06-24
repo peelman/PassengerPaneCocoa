@@ -6,6 +6,7 @@
 //
 
 #import "PassengerController.h"
+#import "PassengerApplication.h"
 
 @implementation PassengerController
 
@@ -35,21 +36,22 @@
 
 -(IBAction)authorize:(id)sender
 {
-	KAuthorizationRightExecute(kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed)
+	//kAuthorizationRightExecute (kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed)
 
 }
 
--(IBAction)startApplication:(id)sender
+-(IBAction)startApplications:(id)sender
+{
+	for (PassengerApplication *site in [sites selectedObjects])
+		[site startApplication];
+}
+
+-(IBAction)stopApplications:(id)sender
 {
 	
 }
 
--(IBAction)stopApplication:(id)sender
-{
-	
-}
-
--(IBAction)restartApplication:(id)sender
+-(IBAction)restartApplications:(id)sender
 {
 	
 }

@@ -21,4 +21,9 @@
 @property NSInteger *railsMode;
 @property BOOL isRunning;
 
+-(void)startApplication;
+-(void)stopApplication;
+-(void)restartApplication;
+
+
 @end
