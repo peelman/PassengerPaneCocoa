@@ -31,13 +31,12 @@
 
 -(void)stopApplication
 {
-	isRunning = NO;
+	[self setIsRunning:NO];
 }
 
 -(void)restartApplication
 {
-	isRunning = YES;
-	
+	[self setIsRunning:YES];	
 }
 
 @end
