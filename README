@@ -1,0 +1,6 @@
+== PassengerPaneCocoa
+
+A Mac OS X system preference pane which aids in quickly setting up Rails
+applications with Phusion Passenger; based on the PassengerPane project.
+
+Definitely a work in progress...
