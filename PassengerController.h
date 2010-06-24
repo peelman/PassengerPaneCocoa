@@ -32,7 +32,8 @@
 	IBOutlet NSMatrix *modeMatrix;
 	
 	
-	BOOL *authorized;
+	BOOL authorized;
+	BOOL hasSites;
 	
 }
 @property (retain) NSArrayController *sites;

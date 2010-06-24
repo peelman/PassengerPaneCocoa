@@ -17,6 +17,8 @@
 	if (![super init])
 		return nil;
 	
+	hasSites = NO;
+	
 	return self;
 }
 
@@ -24,6 +26,7 @@
 {
 	[advancedAlertImage setHidden:YES];
 	[self setupAuthorizationView];
+	[sites setSelectsInsertedObjects:YES];
 }
 
 -(void)setupAuthorizationView
@@ -58,6 +61,5 @@
 	for (PassengerApplication *site in [sites selectedObjects])
 		[site restartApplication];
 }
-
 
 @end

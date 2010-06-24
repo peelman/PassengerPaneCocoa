@@ -18,7 +18,7 @@
 {
 	if (![super init])
 		return nil;
-	
+
 	isRunning = NO;
 	
 	return self;
@@ -26,7 +26,7 @@
 
 -(void)startApplication
 {
-	isRunning = YES;
+	[self setIsRunning:YES];
 }
 
 -(void)stopApplication
