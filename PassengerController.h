@@ -21,6 +21,8 @@
 }
 @property (retain) NSArrayController *sites;
 
+-(void)setupAuthorizationView;
+-(IBAction)authorize:(id)sender;
 -(IBAction)startApplication:(id)sender;
 -(IBAction)stopApplication:(id)sender;
 -(IBAction)restartApplication:(id)sender;
