@@ -15,6 +15,22 @@
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
 	IBOutlet SFAuthorizationView *authView;
+	IBOutlet NSImageView *advancedAlertImage;
+	IBOutlet NSButton *advancedButton;
+	
+	IBOutlet NSButton *startButton;
+	IBOutlet NSButton *stopButton;
+	IBOutlet NSButton *restartButton;
+	IBOutlet NSButton *browseButton;
+	IBOutlet NSButton *addSiteButton;
+	IBOutlet NSButton *removeSiteButton;
+	IBOutlet NSButton *helpButton;
+	
+	IBOutlet NSTextField *addressField;
+	IBOutlet NSTextField *folderField;
+	
+	IBOutlet NSMatrix *modeMatrix;
+	
 	
 	BOOL *authorized;
 	
