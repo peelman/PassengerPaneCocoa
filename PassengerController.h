@@ -6,8 +6,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Security/AuthorizationTags.h>
-#import "SecurityHelper.h"
+#import <SecurityInterface/SFAuthorizationView.h>
 
 
 @interface PassengerController : NSObject {
@@ -17,7 +16,7 @@
 	IBOutlet NSWindow *advancedPanel;
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
-//	IBOutlet SFAuthorizationView *authView;
+	IBOutlet SFAuthorizationView *authView;
 	IBOutlet NSImageView *advancedAlertImage;
 	IBOutlet NSButton *advancedButton;
 	

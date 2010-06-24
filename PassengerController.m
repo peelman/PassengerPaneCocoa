@@ -32,10 +32,10 @@
 -(void)setupAuthorizationView
 {
     authorized = NO;
-//    [authView setStringValue:kAuthorizationRightExecute]
-//    [authView setDelegate:self];
-//    [authView updateStatus:NO];
-//	[authView setAutoUpdate:YES];
+    [authView setString:kAuthorizationRightExecute];
+    [authView setDelegate:self];
+    [authView updateStatus:NO];
+	[authView setAutoupdate:YES];
 }
 
 -(IBAction)authorize:(id)sender
