@@ -12,13 +12,13 @@
 @interface PassengerApplication : NSObject {
 	NSString *name, *address, *path;
 	NSArrayController *aliases;
-	NSNumber *railsMode;
+	NSNumber *rakeMode;
 	BOOL isRunning;
 	
 }
 @property (copy) NSString *name, *address, *path;
 @property (retain) NSArrayController *aliases;
-@property (copy) NSNumber *railsMode;
+@property (copy) NSNumber *rakeMode;
 @property BOOL isRunning;
 
 -(void)startApplication;
