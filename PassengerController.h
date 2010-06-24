@@ -12,6 +12,9 @@
 
 @interface PassengerController : NSObject {
 
+	IBOutlet NSWindow *prefsWindow;
+	IBOutlet NSView *prefsView;
+	IBOutlet NSWindow *advancedPanel;
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
 //	IBOutlet SFAuthorizationView *authView;
@@ -34,9 +37,11 @@
 	
 	BOOL authorized;
 	BOOL hasSites;
+	BOOL hasChanges;
 	
 }
 @property (retain) NSArrayController *sites;
+@property BOOL hasSites, hasChanges;
 
 -(void)setupAuthorizationView;
 -(IBAction)authorize:(id)sender;

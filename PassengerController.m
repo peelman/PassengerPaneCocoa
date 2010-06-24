@@ -10,14 +10,14 @@
 
 @implementation PassengerController
 
-@synthesize sites;
+@synthesize sites, hasSites, hasChanges;
 
 -(id)init
 {
 	if (![super init])
 		return nil;
 	
-	hasSites = NO;
+	hasSites = hasChanges = NO;
 	
 	return self;
 }
