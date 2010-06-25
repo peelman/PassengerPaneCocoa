@@ -5,17 +5,18 @@
 //
 #import "PassengerController.h"
 #import "PassengerApplication.h"
+#import "PassengerShared.h"
 
 @implementation PassengerController
 
-@synthesize sites, isAuthorized, hasSites, hasChanges;
+@synthesize sites, isAuthorized, hasSites, hasChanges, isConfigured;
 
 -(id)init
 {
 	if (![super init])
 		return nil;
 	
-	hasSites = hasChanges = isAuthorized = NO;
+	hasSites = hasChanges = isAuthorized, isConfigured = NO;
 	
 	return self;
 }
@@ -30,6 +31,55 @@
 	[authView setDelegate:self];
     [authView updateStatus:authView];
 	[authView setAutoupdate:YES];
+	
+	[self loadSites];
+}
+
+-(void)checkConfiguration
+{
+	// Locate Config Dir
+	NSFileManager *fm = [NSFileManager defaultManager];
+
+	BOOL isDir = NO;	
+	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
+	{
+		NSLog(@"Config Directory Doesn't Exist");
+		[self setIsConfigured:NO];
+		return;
+	}
+	
+	// Locate Ruby
+	if (![fm fileExistsAtPath:RubyLocation])
+	{
+		NSLog(@"Ruby Not Found");
+		[self setIsConfigured:NO];
+		return;
+	}
+
+	// Locate Passenger
+	isDir = NO;
+	if (![fm fileExistsAtPath:PassengerLocation isDirectory:isDir])
+	{
+		NSLog(@"Passenger Not Found");
+		[self setIsConfigured:NO];
+		return;
+	}
+	
+	// Locate Passenger Apache Module
+	if (![fm fileExistsAtPath:PassengerModuleLocation])
+	{
+		NSLog(@"Passenger Apache Module Not Found");
+		[self setIsConfigured:NO;
+		 return;
+	}
+	
+	[self setIsConfigured:YES];
+}
+
+-(void)loadSites
+{
+
+		
 }
 
 -(void)selectNameField:(NSTextField *)field

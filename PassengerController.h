@@ -36,14 +36,14 @@
 	IBOutlet NSMatrix *modeMatrix;
 	
 	
-	BOOL isAuthorized;
-	BOOL hasSites;
-	BOOL hasChanges;
+	BOOL isAuthorized, hasSites, hasChanges, isConfigured;
 	
 }
 @property (retain) NSArrayController *sites;
-@property BOOL isAuthorized, hasSites, hasChanges;
+@property BOOL isAuthorized, hasSites, hasChanges, isConfigured;
 
+-(void)checkConfiguration;
+-(void)loadSites;
 
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;
