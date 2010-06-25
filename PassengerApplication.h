@@ -15,18 +15,19 @@
 	NSNumber *rakeMode;
 	BOOL appIsRunning;
 	
-	SFAuthorization *authorization;
+	AuthorizationRef authRef;
 	
 }
 @property (copy) NSString *name, *address, *port, *path;
 @property (retain) NSArrayController *aliases;
 @property (copy) NSNumber *rakeMode;
 @property BOOL appIsRunning;
+@property AuthorizationRef authRef;
 
--(void)startApplicationWithAuthorization:(SFAuthorization *)auth;
+-(void)startApplication;
 -(void)stopApplication;
 -(void)restartApplication;
 -(void)createHost:(NSString *)hostName;
-
+-(void)removeHost:(NSString *)hostName;
 
 @end

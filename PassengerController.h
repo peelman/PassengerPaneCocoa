@@ -31,6 +31,7 @@
 	IBOutlet NSTextField *addressField;
 	IBOutlet NSTextField *portField;
 	IBOutlet NSTextField *folderField;
+	IBOutlet NSTextField *tableViewOverlay;
 	
 	IBOutlet NSMatrix *modeMatrix;
 	
@@ -49,6 +50,7 @@
 -(IBAction)restartApplications:(id)sender;
 
 -(IBAction)addSite:(id)sender;
+-(IBAction)removeSite:(id)sender;
 -(IBAction)openFileBrowser:(id)sender;
 -(IBAction)openSite:(id)sender;
 

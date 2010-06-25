@@ -11,7 +11,7 @@
 
 @implementation PassengerApplication
 
-@synthesize name, address, port, path, aliases, rakeMode, appIsRunning;
+@synthesize name, address, port, path, aliases, rakeMode, appIsRunning, authRef;
 
 
 -(id)init
@@ -21,20 +21,19 @@
 
 	[self setAppIsRunning:NO];
 	[self setPort:@"80"];
+	[self setAuthRef:NULL];
+	
 	return self;
 }
 
--(void)startApplicationWithAuthorization:(SFAuthorization *)auth
+-(void)startApplication
 {
-	authorization = auth;
+	NSLog(@"Starting Site %@", [self name]);
+	if (authRef == NULL)
+		return;
 	
 	if (appIsRunning)
-	{
-		NSLog(@"Is Running, stopping");
-		[self stopApplication];
 		return;
-	}
-
 	
 	[self createHost:address];
 	[self setAppIsRunning:YES];
@@ -42,6 +41,16 @@
 
 -(void)stopApplication
 {
+	NSLog(@"Stopping Site: %@",[self name]);
+	
+	if (authRef == NULL)
+		return;
+	
+	if (!appIsRunning)
+		return;
+	
+	[self removeHost:address];
+
 	[self setAppIsRunning:NO];
 }
 
@@ -53,17 +62,30 @@
 -(void)createHost:(NSString *)hostName
 {
 	NSLog(@"Creating Host...");
+	if (authRef == NULL)
+		return;
 
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
 	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-create", dsclPath, @"IPAddress", @"127.0.0.1", nil];
 	
-		//char *args[] = {[@"localhost" UTF8String], [@"-create" UTF8String], [@"/Local/Default/Hosts/" UTF8String], [@"IPAddress" UTF8String], [@"127.0.0.1" UTF8String], NULL};
-
-	[sh setAuthorizationRef:[authorization authorizationRef]];
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:[self authRef]];
 	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
+}
+
+-(void)removeHost:(NSString *)hostName
+{
+	if (authRef == NULL)
+		return;
 	
+	NSLog(@"Removing Host...");
 	
+	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
+	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-delete", dsclPath, nil];
+	
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:[self authRef]];
+	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
 }
 
 @end
