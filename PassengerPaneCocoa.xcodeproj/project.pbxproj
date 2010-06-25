@@ -21,6 +21,8 @@
 		8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F506C035013D953901CA16C8 /* PreferencePanes.framework */; };
 		990BC5D611D43B8900CD37C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BC5D511D43B8900CD37C0 /* Security.framework */; };
 		990BC79111D4589300CD37C0 /* httpd-passengerpanecocoa.conf in Resources */ = {isa = PBXBuildFile; fileRef = 990BC79011D4589300CD37C0 /* httpd-passengerpanecocoa.conf */; };
+		990BC8B911D5096200CD37C0 /* SecurityHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB36311D316AF00B21EE0 /* SecurityHelper.h */; };
+		990BC8BA11D5096200CD37C0 /* SecurityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB36411D316AF00B21EE0 /* SecurityHelper.m */; };
 		990CB30D11D30EA400B21EE0 /* PassengerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB30B11D30EA400B21EE0 /* PassengerController.h */; };
 		990CB30E11D30EA400B21EE0 /* PassengerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB30C11D30EA400B21EE0 /* PassengerController.m */; };
 		990CB31411D30F1900B21EE0 /* PassengerApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB31211D30F1900B21EE0 /* PassengerApplication.h */; };
@@ -167,6 +169,7 @@
 				8D202CEB0486D31800D8A456 /* PassengerPaneCocoaPref.h in Headers */,
 				990CB30D11D30EA400B21EE0 /* PassengerController.h in Headers */,
 				990CB31411D30F1900B21EE0 /* PassengerApplication.h in Headers */,
+				990BC8B911D5096200CD37C0 /* SecurityHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +248,7 @@
 				8D202CF10486D31800D8A456 /* PassengerPaneCocoaPref.m in Sources */,
 				990CB30E11D30EA400B21EE0 /* PassengerController.m in Sources */,
 				990CB31511D30F1900B21EE0 /* PassengerApplication.m in Sources */,
+				990BC8BA11D5096200CD37C0 /* SecurityHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

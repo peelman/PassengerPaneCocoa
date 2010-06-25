@@ -53,16 +53,13 @@
 -(void)createHost:(NSString *)hostName
 {
 	NSLog(@"Creating Host...");
-	NSError *error;
+
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	NSArray *args = [NSArray arrayWithObjects:@"localhost ", @"-create", @"/LocalDefault/Hosts/", @"testing", @"IPAddress", @"127.0.0.1",nil];
 	
-	ODSession *mySession = [ODSession defaultSession];
-	NSString *nodeName = @"/Local/Default/Hosts";
+	[sh setAuthorizationRef:[authorization authorizationRef]];
+	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
 	
-	ODNode *hostsNode = [ODNode nodeWithSession:mySession name:nodeName error:&error];
-	[hostsNode setCredentialsWithRecordType:kODRecordTypeHosts authenticationType:kODAuthenticationTypeWithAuthorizationRef authenticationItems:[NSArray arrayWithObject:[authorization authorizationRef]] continueItems:nil context:nil error:nil];
-	
-	for (id i in [hostsNode subnodeNamesAndReturnError:nil])
-		NSLog(@"%@",i);
 	
 }
 

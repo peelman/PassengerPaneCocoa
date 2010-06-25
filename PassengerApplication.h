@@ -7,6 +7,8 @@
 #import <Cocoa/Cocoa.h>
 #import <SecurityFoundation/SFAuthorization.h>
 
+#import "SecurityHelper.h"
+
 @interface PassengerApplication : NSObject {
 	NSString *name, *address, *port, *path;
 	NSArrayController *aliases;
