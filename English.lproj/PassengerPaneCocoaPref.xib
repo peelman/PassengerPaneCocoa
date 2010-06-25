@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="6"/>
+			<integer value="101"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1017,6 +1017,8 @@ Oi8vd3d3Lm1vZHJhaWxzLmNvbSBmb3IgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucy4</string>
 					<string>isRunning</string>
 					<string>rakeMode</string>
 					<string>port</string>
+					<string>isAppRunning</string>
+					<string>appIsRunning</string>
 				</object>
 				<string key="NSObjectClassName">PassengerApplication</string>
 				<bool key="NSEditable">YES</bool>
@@ -1367,143 +1369,6 @@ Oi8vd3d3Lm1vZHJhaWxzLmNvbSBmb3IgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucy4</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selection.isRunning</string>
-						<reference key="source" ref="147022843"/>
-						<reference key="destination" ref="145026335"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="147022843"/>
-							<reference key="NSDestination" ref="145026335"/>
-							<string key="NSLabel">enabled: selection.isRunning</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selection.isRunning</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSMultipleValuesPlaceholder</string>
-									<string>NSNoSelectionPlaceholder</string>
-									<string>NSNotApplicablePlaceholder</string>
-									<string>NSNullPlaceholder</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<integer value="1"/>
-									<integer value="0"/>
-									<integer value="0"/>
-									<integer value="0"/>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">302</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: canAdd</string>
-						<reference key="source" ref="829267709"/>
-						<reference key="destination" ref="145026335"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="829267709"/>
-							<reference key="NSDestination" ref="145026335"/>
-							<string key="NSLabel">enabled: canAdd</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">canAdd</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">396</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: canRemove</string>
-						<reference key="source" ref="838849825"/>
-						<reference key="destination" ref="145026335"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="838849825"/>
-							<reference key="NSDestination" ref="145026335"/>
-							<string key="NSLabel">enabled: canRemove</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">canRemove</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">397</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.isRunning</string>
-						<reference key="source" ref="830112717"/>
-						<reference key="destination" ref="145026335"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="830112717"/>
-							<reference key="NSDestination" ref="145026335"/>
-							<string key="NSLabel">value: arrangedObjects.isRunning</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.isRunning</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSAllowsEditingMultipleValuesSelection</string>
-									<string>NSConditionallySetsEnabled</string>
-									<string>NSCreatesSortDescriptor</string>
-									<string>NSMultipleValuesPlaceholder</string>
-									<string>NSNoSelectionPlaceholder</string>
-									<string>NSNotApplicablePlaceholder</string>
-									<string>NSNullPlaceholder</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<boolean value="NO"/>
-									<boolean value="NO"/>
-									<boolean value="NO"/>
-									<integer value="0"/>
-									<integer value="0"/>
-									<integer value="0"/>
-									<integer value="0"/>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">429</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: selection.isRunning</string>
-						<reference key="source" ref="1025098791"/>
-						<reference key="destination" ref="145026335"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1025098791"/>
-							<reference key="NSDestination" ref="145026335"/>
-							<string key="NSLabel">value: selection.isRunning</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">selection.isRunning</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSMultipleValuesPlaceholder</string>
-									<string>NSNoSelectionPlaceholder</string>
-									<string>NSNotApplicablePlaceholder</string>
-									<string>NSNullPlaceholder</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<integer value="0"/>
-									<integer value="0"/>
-									<integer value="0"/>
-									<integer value="0"/>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">437</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: selection.name</string>
 						<reference key="source" ref="333336352"/>
 						<reference key="destination" ref="145026335"/>
@@ -1635,6 +1500,110 @@ Oi8vd3d3Lm1vZHJhaWxzLmNvbSBmb3IgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucy4</string>
 					<int key="connectionID">451</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">authView</string>
+						<reference key="source" ref="974313228"/>
+						<reference key="destination" ref="957680996"/>
+					</object>
+					<int key="connectionID">458</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="354115921"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="354115921"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">460</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="829267709"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="829267709"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">462</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="838849825"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="838849825"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">464</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="333336352"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="333336352"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">465</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="1072289165"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1072289165"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">468</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="381382611"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="381382611"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">471</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: selection.port</string>
 						<reference key="source" ref="381382611"/>
@@ -1650,30 +1619,253 @@ Oi8vd3d3Lm1vZHJhaWxzLmNvbSBmb3IgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucy4</string>
 								<object class="NSArray" key="dict.sortedKeys">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<string>NSMultipleValuesPlaceholder</string>
+									<string>NSNullPlaceholder</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>80</string>
+									<string>80</string>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">475</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="657216916"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="657216916"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">478</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="899035436"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="899035436"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">481</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="862194909"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="862194909"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">482</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="1025098791"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1025098791"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">485</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="215242961"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="215242961"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">489</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isAuthorized</string>
+						<reference key="source" ref="819409148"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="819409148"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled: isAuthorized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">491</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.appIsRunning</string>
+						<reference key="source" ref="830112717"/>
+						<reference key="destination" ref="145026335"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="830112717"/>
+							<reference key="NSDestination" ref="145026335"/>
+							<string key="NSLabel">value: arrangedObjects.appIsRunning</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.appIsRunning</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSAllowsEditingMultipleValuesSelection</string>
+									<string>NSConditionallySetsEnabled</string>
+									<string>NSCreatesSortDescriptor</string>
+									<string>NSMultipleValuesPlaceholder</string>
 									<string>NSNoSelectionPlaceholder</string>
 									<string>NSNotApplicablePlaceholder</string>
 									<string>NSNullPlaceholder</string>
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>&lt;multiple sites&gt;</string>
-									<string>Nothing Selected</string>
-									<string>&lt;invalid&gt;</string>
-									<string>Add Name</string>
+									<boolean value="NO"/>
+									<boolean value="NO"/>
+									<boolean value="NO"/>
+									<integer value="0"/>
+									<integer value="0"/>
+									<integer value="0"/>
+									<integer value="0"/>
 								</object>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">457</int>
+					<int key="connectionID">495</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">authView</string>
-						<reference key="source" ref="974313228"/>
-						<reference key="destination" ref="957680996"/>
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selection.appIsRunning</string>
+						<reference key="source" ref="147022843"/>
+						<reference key="destination" ref="145026335"/>
+						<object class="NSNibBindingConnector" key="connector" id="452503967">
+							<reference key="NSSource" ref="147022843"/>
+							<reference key="NSDestination" ref="145026335"/>
+							<string key="NSLabel">enabled: selection.appIsRunning</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selection.appIsRunning</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSMultipleValuesPlaceholder</string>
+									<string>NSNoSelectionPlaceholder</string>
+									<string>NSNotApplicablePlaceholder</string>
+									<string>NSNullPlaceholder</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<integer value="1"/>
+									<integer value="0"/>
+									<integer value="0"/>
+									<integer value="0"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
 					</object>
-					<int key="connectionID">458</int>
+					<int key="connectionID">496</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled2: isAuthorized</string>
+						<reference key="source" ref="147022843"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="147022843"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled2: isAuthorized</string>
+							<string key="NSBinding">enabled2</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSMultipleValuesPlaceholder</string>
+									<string>NSNoSelectionPlaceholder</string>
+									<string>NSNotApplicablePlaceholder</string>
+									<string>NSNullPlaceholder</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<integer value="-1"/>
+									<integer value="-1"/>
+									<integer value="-1"/>
+									<integer value="-1"/>
+								</object>
+							</object>
+							<reference key="NSPreviousConnector" ref="452503967"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">497</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: selection.appIsRunning</string>
+						<reference key="source" ref="1025098791"/>
+						<reference key="destination" ref="145026335"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1025098791"/>
+							<reference key="NSDestination" ref="145026335"/>
+							<string key="NSLabel">value: selection.appIsRunning</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">selection.appIsRunning</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSMultipleValuesPlaceholder</string>
+									<string>NSNoSelectionPlaceholder</string>
+									<string>NSNotApplicablePlaceholder</string>
+									<string>NSNullPlaceholder</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<integer value="0"/>
+									<integer value="0"/>
+									<integer value="0"/>
+									<integer value="0"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">498</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2472,9 +2664,9 @@ Oi8vd3d3Lm1vZHJhaWxzLmNvbSBmb3IgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucy4</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{158, 421}, {644, 348}}</string>
+					<string>{{332, 250}, {644, 348}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{158, 421}, {644, 348}}</string>
+					<string>{{332, 250}, {644, 348}}</string>
 					<integer value="1"/>
 					<integer value="1"/>
 					<string>{224.664, 10}</string>
@@ -2596,7 +2788,7 @@ Oi8vd3d3Lm1vZHJhaWxzLmNvbSBmb3IgaW5zdGFsbGF0aW9uIGluc3RydWN0aW9ucy4</string>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">458</int>
+			<int key="maxID">498</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

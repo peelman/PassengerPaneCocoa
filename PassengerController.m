@@ -37,11 +37,14 @@
 -(IBAction)startApplications:(id)sender
 {
 	if (!isAuthorized)
-		if (![authView authorize:sender])
-			return;
+		return;
 	
 	for (PassengerApplication *site in [sites selectedObjects])
+	{	
+		NSLog(@"Before Start: %i",[site appIsRunning]);
 		[site startApplication];
+		NSLog(@"After Start: %i",[site appIsRunning]);
+	}
 }
 
 -(IBAction)stopApplications:(id)sender

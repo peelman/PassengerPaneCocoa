@@ -12,7 +12,7 @@
 
 @implementation PassengerApplication
 
-@synthesize name, address, port, path, aliases, rakeMode, isRunning;
+@synthesize name, address, port, path, aliases, rakeMode, appIsRunning;
 
 
 -(id)init
@@ -20,29 +20,33 @@
 	if (![super init])
 		return nil;
 
-	isRunning = NO;
+	[self setAppIsRunning:NO];
 	
 	return self;
 }
 
 -(void)startApplication
 {
-	[self createHost:address];
-	
-	if (! isRunning)
-		[self setIsRunning:YES];
-	else
+	if (appIsRunning)
+	{
+		NSLog(@"Is Running, stopping");
 		[self stopApplication];
+		return;
+	}
+
+	
+	[self createHost:address];
+	[self setAppIsRunning:YES];
 }
 
 -(void)stopApplication
 {
-	[self setIsRunning:NO];
+	[self setAppIsRunning:NO];
 }
 
 -(void)restartApplication
 {
-	[self setIsRunning:YES];	
+	[self setAppIsRunning:YES];	
 }
 
 -(void)createHost:(NSString *)hostName
