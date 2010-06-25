@@ -73,12 +73,12 @@
 
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
 {
-	[self set
+	[self setIsAuthorized:YES];
 }
 
 - (void)authorizationViewDidDeauthorize:(SFAuthorizationView *)view
 {
-	
+	[self setIsAuthorized:NO];
 }
 
 
