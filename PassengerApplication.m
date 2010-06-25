@@ -24,8 +24,10 @@
 	return self;
 }
 
--(void)startApplication
+-(void)startApplicationWithAuthorization:(SFAuthorization *)auth
 {
+	authorization = auth;
+	
 	if (appIsRunning)
 	{
 		NSLog(@"Is Running, stopping");
@@ -51,12 +53,13 @@
 -(void)createHost:(NSString *)hostName
 {
 	NSLog(@"Creating Host...");
-	ODSession *mySession = [ODSession defaultSession];
 	NSError *error;
 	
+	ODSession *mySession = [ODSession defaultSession];
 	NSString *nodeName = @"/Local/Default/Hosts";
 	
 	ODNode *hostsNode = [ODNode nodeWithSession:mySession name:nodeName error:&error];
+	[hostsNode setCredentialsWithRecordType:kODRecordTypeHosts authenticationType:kODAuthenticationTypeWithAuthorizationRef authenticationItems:[NSArray arrayWithObject:[authorization authorizationRef]] continueItems:nil context:nil error:nil];
 	
 	for (id i in [hostsNode subnodeNamesAndReturnError:nil])
 		NSLog(@"%@",i);

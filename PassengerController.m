@@ -41,7 +41,7 @@
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
 		NSLog(@"Before Start: %i",[site appIsRunning]);
-		[site startApplication];
+		[site startApplicationWithAuthorization:[authView authorization]];
 		NSLog(@"After Start: %i",[site appIsRunning]);
 	}
 }
