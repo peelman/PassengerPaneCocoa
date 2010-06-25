@@ -39,6 +39,7 @@
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* PassengerPaneCocoa.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassengerPaneCocoa.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BC5D511D43B8900CD37C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		990BC78A11D4578600CD37C0 /* apache_passengerpanecocoa.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apache_passengerpanecocoa.conf; sourceTree = "<group>"; };
 		990CB30B11D30EA400B21EE0 /* PassengerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerController.h; sourceTree = "<group>"; };
 		990CB30C11D30EA400B21EE0 /* PassengerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerController.m; sourceTree = "<group>"; };
 		990CB31211D30F1900B21EE0 /* PassengerApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerApplication.h; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				990BC78A11D4578600CD37C0 /* apache_passengerpanecocoa.conf */,
 				3EEF3FC211D3B2C2005FBAF1 /* AlertCautionIcon.icns */,
 				3EEF3FC311D3B2C2005FBAF1 /* AlertNoteIcon.icns */,
 				3EEF3FC411D3B2C2005FBAF1 /* AlertStopIcon.icns */,
