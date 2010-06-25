@@ -42,8 +42,7 @@
 @property (retain) NSArrayController *sites;
 @property BOOL isAuthorized, hasSites, hasChanges;
 
--(void)setupAuthorizationView;
--(IBAction)authorize:(id)sender;
+
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;
 -(IBAction)restartApplications:(id)sender;

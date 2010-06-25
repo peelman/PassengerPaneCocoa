@@ -24,36 +24,22 @@
 
 -(void)awakeFromNib
 {
-	[advancedAlertImage setHidden:YES];
-	[self setupAuthorizationView];
 	[sites setSelectsInsertedObjects:YES];
-}
-
--(void)setupAuthorizationView
-{
-    isAuthorized = NO;
+	[advancedAlertImage setHidden:YES];
     [authView setString:kAuthorizationRightExecute];
-    [authView setDelegate:self];
-    [authView updateStatus:self];
+	[authView setDelegate:self];
+    [authView updateStatus:authView];
 	[authView setAutoupdate:YES];
 }
 
--(IBAction)authorize:(id)sender
-{
-	AuthorizationFlags authFlags = kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed;
-	[[authView authorization] obtainWithRight:kAuthorizationRightExecute flags:authFlags error:nil];
-	
-//	AuthorizationRef myAuthorizationRef;
-//	AuthorizationFlags authFlags = kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed;
-//
-//	OSStatus myStatus;
-//	myStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, authFlags, &myAuthorizationRef);
 
-
-}
 
 -(IBAction)startApplications:(id)sender
 {
+	if (!isAuthorized)
+		if (![authView authorize:sender])
+			return;
+	
 	for (PassengerApplication *site in [sites selectedObjects])
 		[site startApplication];
 }
