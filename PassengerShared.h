@@ -16,7 +16,8 @@ extern NSString * const ApacheRestartCommand;
 extern NSString * const ApacheConfDir;
 
 extern NSString * const RubyLocation;
-extern NSString * const PassengerLocation;
+extern NSString * const PassengerDir;
+extern NSString * const PassengerModuleLocation;
 
 extern NSString * const SitesConfDir;
 extern NSString * const SitesConfEnabledExtension;

@@ -5,7 +5,6 @@
 //
 #import "PassengerController.h"
 #import "PassengerApplication.h"
-#import "PassengerShared.h"
 
 @implementation PassengerController
 
@@ -32,7 +31,10 @@
     [authView updateStatus:authView];
 	[authView setAutoupdate:YES];
 	
-	[self loadSites];
+	[self checkConfiguration];
+	
+	if ([self isConfigured])
+		[self loadSites];
 }
 
 -(void)checkConfiguration
@@ -43,7 +45,8 @@
 	BOOL isDir = NO;	
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
 	{
-		NSLog(@"Config Directory Doesn't Exist");
+		[statusText setStringValue:@"Config Directory Doesn't Exist"];
+		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
 	}
@@ -51,16 +54,18 @@
 	// Locate Ruby
 	if (![fm fileExistsAtPath:RubyLocation])
 	{
-		NSLog(@"Ruby Not Found");
+		[statusText setStringValue:@"Ruby Not Found"];
+		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
 	}
 
 	// Locate Passenger
 	isDir = NO;
-	if (![fm fileExistsAtPath:PassengerLocation isDirectory:isDir])
+	if (![fm fileExistsAtPath:PassengerDir isDirectory:&isDir])
 	{
-		NSLog(@"Passenger Not Found");
+		[statusText setStringValue:@"Passenger Not Found"];
+		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
 	}
@@ -68,11 +73,14 @@
 	// Locate Passenger Apache Module
 	if (![fm fileExistsAtPath:PassengerModuleLocation])
 	{
-		NSLog(@"Passenger Apache Module Not Found");
-		[self setIsConfigured:NO;
-		 return;
+		[statusText setStringValue:@"Passenger Apache Module Not Found"];
+		NSLog(@"%@",[statusText stringValue]);
+		[self setIsConfigured:NO];
+		return;
 	}
 	
+		 [statusText setStringValue:@""];
+	 [statusText setHidden:YES];
 	[self setIsConfigured:YES];
 }
 
