@@ -966,7 +966,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 								<int key="NSCellFlags2">33554432</int>
 								<object class="NSCustomResource" key="NSContents">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSImageNameStatusNone</string>
+									<string key="NSResourceName">AlertNoteIcon</string>
 								</object>
 								<int key="NSAlign">0</int>
 								<int key="NSScale">0</int>
@@ -975,30 +975,30 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							</object>
 							<bool key="NSEditable">YES</bool>
 						</object>
-						<object class="NSTextField" id="445109548">
+						<object class="NSTextField" id="1056023146">
 							<reference key="NSNextResponder" ref="1037298196"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{354, 76}, {273, 17}}</string>
 							<reference key="NSSuperview" ref="1037298196"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="970505059">
+							<object class="NSTextFieldCell" key="NSCell" id="579834527">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">4199424</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="352769653"/>
 								<string key="NSPlaceholderString">Configured Properly</string>
-								<reference key="NSControlView" ref="445109548"/>
+								<reference key="NSControlView" ref="1056023146"/>
 								<reference key="NSBackgroundColor" ref="431751689"/>
 								<reference key="NSTextColor" ref="1064423489"/>
 							</object>
 						</object>
-						<object class="NSButton" id="1052786760">
+						<object class="NSButton" id="285556293">
 							<reference key="NSNextResponder" ref="1037298196"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{266, 74}, {83, 19}}</string>
 							<reference key="NSSuperview" ref="1037298196"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="739495542">
+							<object class="NSButtonCell" key="NSCell" id="385291395">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Configure</string>
@@ -1007,7 +1007,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 									<double key="NSSize">12</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<reference key="NSControlView" ref="1052786760"/>
+								<reference key="NSControlView" ref="285556293"/>
 								<int key="NSButtonFlags">-2038152961</int>
 								<int key="NSButtonFlags2">164</int>
 								<string key="NSAlternateContents"/>
@@ -2306,17 +2306,17 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">statusText</string>
 						<reference key="source" ref="974313228"/>
-						<reference key="destination" ref="445109548"/>
+						<reference key="destination" ref="1056023146"/>
 					</object>
 					<int key="connectionID">600</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">hidden: isConfigured</string>
-						<reference key="source" ref="445109548"/>
+						<reference key="source" ref="1056023146"/>
 						<reference key="destination" ref="974313228"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="445109548"/>
+							<reference key="NSSource" ref="1056023146"/>
 							<reference key="NSDestination" ref="974313228"/>
 							<string key="NSLabel">hidden: isConfigured</string>
 							<string key="NSBinding">hidden</string>
@@ -2329,10 +2329,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">enabled: isConfigured</string>
-						<reference key="source" ref="1052786760"/>
+						<reference key="source" ref="285556293"/>
 						<reference key="destination" ref="974313228"/>
-						<object class="NSNibBindingConnector" key="connector" id="785113302">
-							<reference key="NSSource" ref="1052786760"/>
+						<object class="NSNibBindingConnector" key="connector" id="532061467">
+							<reference key="NSSource" ref="285556293"/>
 							<reference key="NSDestination" ref="974313228"/>
 							<string key="NSLabel">enabled: isConfigured</string>
 							<string key="NSBinding">enabled</string>
@@ -2362,27 +2362,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<int key="connectionID">625</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">hidden: isConfigured</string>
-						<reference key="source" ref="1052786760"/>
-						<reference key="destination" ref="974313228"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1052786760"/>
-							<reference key="NSDestination" ref="974313228"/>
-							<string key="NSLabel">hidden: isConfigured</string>
-							<string key="NSBinding">hidden</string>
-							<string key="NSKeyPath">isConfigured</string>
-							<reference key="NSPreviousConnector" ref="785113302"/>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">626</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">configureButton</string>
 						<reference key="source" ref="974313228"/>
-						<reference key="destination" ref="1052786760"/>
+						<reference key="destination" ref="285556293"/>
 					</object>
 					<int key="connectionID">627</int>
 				</object>
@@ -2426,6 +2409,65 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						</object>
 					</object>
 					<int key="connectionID">634</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">attemptConfiguration:</string>
+						<reference key="source" ref="974313228"/>
+						<reference key="destination" ref="285556293"/>
+					</object>
+					<int key="connectionID">635</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled2: isAuthorized</string>
+						<reference key="source" ref="285556293"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector" id="273196577">
+							<reference key="NSSource" ref="285556293"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">enabled2: isAuthorized</string>
+							<string key="NSBinding">enabled2</string>
+							<string key="NSKeyPath">isAuthorized</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSMultipleValuesPlaceholder</string>
+									<string>NSNoSelectionPlaceholder</string>
+									<string>NSNotApplicablePlaceholder</string>
+									<string>NSNullPlaceholder</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<integer value="-1"/>
+									<integer value="-1"/>
+									<integer value="-1"/>
+									<integer value="-1"/>
+								</object>
+							</object>
+							<reference key="NSPreviousConnector" ref="532061467"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">636</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: isConfigured</string>
+						<reference key="source" ref="285556293"/>
+						<reference key="destination" ref="974313228"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="285556293"/>
+							<reference key="NSDestination" ref="974313228"/>
+							<string key="NSLabel">hidden: isConfigured</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">isConfigured</string>
+							<reference key="NSPreviousConnector" ref="273196577"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">637</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2473,9 +2515,9 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<reference ref="201395742"/>
 							<reference ref="983633561"/>
 							<reference ref="323627685"/>
-							<reference ref="445109548"/>
+							<reference ref="1056023146"/>
 							<reference ref="531655464"/>
-							<reference ref="1052786760"/>
+							<reference ref="285556293"/>
 						</object>
 						<reference key="parent" ref="660800786"/>
 					</object>
@@ -3084,31 +3126,31 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">596</int>
-						<reference key="object" ref="445109548"/>
+						<reference key="object" ref="1056023146"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="970505059"/>
+							<reference ref="579834527"/>
 						</object>
 						<reference key="parent" ref="1037298196"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">597</int>
-						<reference key="object" ref="970505059"/>
-						<reference key="parent" ref="445109548"/>
+						<reference key="object" ref="579834527"/>
+						<reference key="parent" ref="1056023146"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">609</int>
-						<reference key="object" ref="1052786760"/>
+						<reference key="object" ref="285556293"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="739495542"/>
+							<reference ref="385291395"/>
 						</object>
 						<reference key="parent" ref="1037298196"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">610</int>
-						<reference key="object" ref="739495542"/>
-						<reference key="parent" ref="1052786760"/>
+						<reference key="object" ref="385291395"/>
+						<reference key="parent" ref="285556293"/>
 					</object>
 				</object>
 			</object>
@@ -3384,7 +3426,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">634</int>
+			<int key="maxID">637</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3413,6 +3455,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addSite:</string>
+							<string>attemptConfiguration:</string>
 							<string>openFileBrowser:</string>
 							<string>openSite:</string>
 							<string>removeSite:</string>
@@ -3422,6 +3465,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

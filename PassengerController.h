@@ -56,5 +56,6 @@
 -(IBAction)removeSite:(id)sender;
 -(IBAction)openFileBrowser:(id)sender;
 -(IBAction)openSite:(id)sender;
+-(IBAction)attemptConfiguration:(id)sender;
 
 @end

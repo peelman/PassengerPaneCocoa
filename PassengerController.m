@@ -161,6 +161,11 @@
 	
 }
 
+-(IBAction)attemptConfiguration:(id)sender
+{
+	
+}
+
 #pragma mark -
 #pragma mark SFAuthorizationView Delegate Methods
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
