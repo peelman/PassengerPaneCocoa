@@ -90,4 +90,20 @@
 	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
 }
 
+#pragma mark -
+#pragma mark File Operations
+
+/*  Sample Config File
+ 
+ <VirtualHost *:80>
+ ServerName www.yourhost.com
+ DocumentRoot /somewhere/public    # <-- be sure to point to 'public'!
+ <Directory /somewhere/public>
+ AllowOverride all              # <-- relax Apache security settings
+ Options -MultiViews            # <-- MultiViews must be turned off
+ </Directory>
+ </VirtualHost>
+ 
+ */
+
 @end
