@@ -32,6 +32,7 @@
 	IBOutlet NSTextField *portField;
 	IBOutlet NSTextField *folderField;
 	IBOutlet NSTextField *tableViewOverlay;
+	IBOutlet NSTextField *statusText;
 	
 	IBOutlet NSMatrix *modeMatrix;
 	
