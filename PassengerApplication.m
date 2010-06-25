@@ -55,8 +55,11 @@
 	NSLog(@"Creating Host...");
 
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	NSArray *args = [NSArray arrayWithObjects:@"localhost ", @"-create", @"/LocalDefault/Hosts/", @"testing", @"IPAddress", @"127.0.0.1",nil];
+	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
+	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-create", dsclPath, @"IPAddress", @"127.0.0.1", nil];
 	
+		//char *args[] = {[@"localhost" UTF8String], [@"-create" UTF8String], [@"/Local/Default/Hosts/" UTF8String], [@"IPAddress" UTF8String], [@"127.0.0.1" UTF8String], NULL};
+
 	[sh setAuthorizationRef:[authorization authorizationRef]];
 	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
 	
