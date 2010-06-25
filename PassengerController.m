@@ -31,7 +31,7 @@
 
 -(void)setupAuthorizationView
 {
-    authorized = NO;
+    isAuthorized = NO;
     [authView setString:kAuthorizationRightExecute];
     [authView setDelegate:self];
     [authView updateStatus:self];
