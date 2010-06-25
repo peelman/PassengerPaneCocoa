@@ -34,13 +34,13 @@
 	IBOutlet NSMatrix *modeMatrix;
 	
 	
-	BOOL authorized;
+	BOOL isAuthorized;
 	BOOL hasSites;
 	BOOL hasChanges;
 	
 }
 @property (retain) NSArrayController *sites;
-@property BOOL hasSites, hasChanges;
+@property BOOL isAuthorized, hasSites, hasChanges;
 
 -(void)setupAuthorizationView;
 -(IBAction)authorize:(id)sender;

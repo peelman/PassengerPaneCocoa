@@ -10,14 +10,14 @@
 
 @implementation PassengerController
 
-@synthesize sites, hasSites, hasChanges;
+@synthesize sites, isAuthorized, hasSites, hasChanges;
 
 -(id)init
 {
 	if (![super init])
 		return nil;
 	
-	hasSites = hasChanges = authorized = NO;
+	hasSites = hasChanges = isAuthorized = NO;
 	
 	return self;
 }
@@ -42,6 +42,7 @@
 {
 	AuthorizationFlags authFlags = kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed;
 	[[authView authorization] obtainWithRight:kAuthorizationRightExecute flags:authFlags error:nil];
+	
 //	AuthorizationRef myAuthorizationRef;
 //	AuthorizationFlags authFlags = kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed;
 //
@@ -72,7 +73,7 @@
 
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
 {
-	
+	[self set
 }
 
 - (void)authorizationViewDidDeauthorize:(SFAuthorizationView *)view
