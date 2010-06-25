@@ -73,7 +73,6 @@
 -(IBAction)addSite:(id)sender
 {
 	[sites add:sender];
-
 	[self performSelector:@selector(selectNameField:) withObject:nameField afterDelay:0.25];
 }
 

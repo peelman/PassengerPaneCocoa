@@ -8,6 +8,7 @@
 #import <SecurityFoundation/SFAuthorization.h>
 
 #import "SecurityHelper.h"
+#import "PassengerApplicationConfigFile.h"
 
 @interface PassengerApplication : NSObject {
 	NSString *name, *address, *port, *path;

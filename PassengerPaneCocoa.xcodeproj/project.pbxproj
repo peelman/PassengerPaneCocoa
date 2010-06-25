@@ -27,6 +27,10 @@
 		990CB30E11D30EA400B21EE0 /* PassengerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB30C11D30EA400B21EE0 /* PassengerController.m */; };
 		990CB31411D30F1900B21EE0 /* PassengerApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB31211D30F1900B21EE0 /* PassengerApplication.h */; };
 		990CB31511D30F1900B21EE0 /* PassengerApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB31311D30F1900B21EE0 /* PassengerApplication.m */; };
+		990CB4FA11D544A200B21EE0 /* PassengerApplicationConfigFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB4F811D544A200B21EE0 /* PassengerApplicationConfigFile.h */; };
+		990CB4FB11D544A200B21EE0 /* PassengerApplicationConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB4F911D544A200B21EE0 /* PassengerApplicationConfigFile.m */; };
+		990CB50011D544BD00B21EE0 /* PassengerApacheController.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB4FE11D544BD00B21EE0 /* PassengerApacheController.h */; };
+		990CB50111D544BD00B21EE0 /* PassengerApacheController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB4FF11D544BD00B21EE0 /* PassengerApacheController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		990CB31311D30F1900B21EE0 /* PassengerApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerApplication.m; sourceTree = "<group>"; };
 		990CB36311D316AF00B21EE0 /* SecurityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityHelper.h; sourceTree = "<group>"; };
 		990CB36411D316AF00B21EE0 /* SecurityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityHelper.m; sourceTree = "<group>"; };
+		990CB4F811D544A200B21EE0 /* PassengerApplicationConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerApplicationConfigFile.h; sourceTree = "<group>"; };
+		990CB4F911D544A200B21EE0 /* PassengerApplicationConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerApplicationConfigFile.m; sourceTree = "<group>"; };
+		990CB4FE11D544BD00B21EE0 /* PassengerApacheController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerApacheController.h; sourceTree = "<group>"; };
+		990CB4FF11D544BD00B21EE0 /* PassengerApacheController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerApacheController.m; sourceTree = "<group>"; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* PassengerPaneCocoaPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerPaneCocoaPref.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* PassengerPaneCocoaPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerPaneCocoaPref.m; sourceTree = "<group>"; };
@@ -112,6 +120,10 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				990CB4F811D544A200B21EE0 /* PassengerApplicationConfigFile.h */,
+				990CB4F911D544A200B21EE0 /* PassengerApplicationConfigFile.m */,
+				990CB4FE11D544BD00B21EE0 /* PassengerApacheController.h */,
+				990CB4FF11D544BD00B21EE0 /* PassengerApacheController.m */,
 				990CB30B11D30EA400B21EE0 /* PassengerController.h */,
 				990CB30C11D30EA400B21EE0 /* PassengerController.m */,
 				990CB31211D30F1900B21EE0 /* PassengerApplication.h */,
@@ -170,6 +182,8 @@
 				990CB30D11D30EA400B21EE0 /* PassengerController.h in Headers */,
 				990CB31411D30F1900B21EE0 /* PassengerApplication.h in Headers */,
 				990BC8B911D5096200CD37C0 /* SecurityHelper.h in Headers */,
+				990CB4FA11D544A200B21EE0 /* PassengerApplicationConfigFile.h in Headers */,
+				990CB50011D544BD00B21EE0 /* PassengerApacheController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +263,8 @@
 				990CB30E11D30EA400B21EE0 /* PassengerController.m in Sources */,
 				990CB31511D30F1900B21EE0 /* PassengerApplication.m in Sources */,
 				990BC8BA11D5096200CD37C0 /* SecurityHelper.m in Sources */,
+				990CB4FB11D544A200B21EE0 /* PassengerApplicationConfigFile.m in Sources */,
+				990CB50111D544BD00B21EE0 /* PassengerApacheController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

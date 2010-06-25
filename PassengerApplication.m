@@ -59,6 +59,8 @@
 	[self setAppIsRunning:YES];	
 }
 
+#pragma mark -
+#pragma mark DSCL Commands
 -(void)createHost:(NSString *)hostName
 {
 	NSLog(@"Creating Host...");
