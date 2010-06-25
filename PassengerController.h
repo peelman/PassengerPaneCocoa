@@ -11,13 +11,12 @@
 @interface PassengerController : NSObject {
 
 	IBOutlet NSWindow *prefsWindow;
-	IBOutlet NSView *prefsView;
 	IBOutlet NSWindow *advancedPanel;
+	IBOutlet NSView *prefsView;
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
 	IBOutlet SFAuthorizationView *authView;
-	IBOutlet NSImageView *advancedAlertImage;
-	IBOutlet NSButton *advancedButton;
+	IBOutlet NSImageView *statusImage;
 	
 	IBOutlet NSButton *startButton;
 	IBOutlet NSButton *stopButton;
@@ -27,6 +26,8 @@
 	IBOutlet NSButton *addSiteButton;
 	IBOutlet NSButton *removeSiteButton;
 	IBOutlet NSButton *helpButton;
+	IBOutlet NSButton *advancedButton;
+	IBOutlet NSButton *configureButton;
 	
 	IBOutlet NSTextField *nameField;
 	IBOutlet NSTextField *addressField;

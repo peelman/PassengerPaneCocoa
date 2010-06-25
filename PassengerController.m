@@ -15,7 +15,10 @@
 	if (![super init])
 		return nil;
 	
-	hasSites = hasChanges = isAuthorized, isConfigured = NO;
+	[self setHasSites:NO];
+	[self setHasChanges:NO];
+	[self setIsAuthorized:NO];
+	[self setIsConfigured:NO];
 	
 	return self;
 }
@@ -24,7 +27,6 @@
 {
 	[sitesTableView setAllowsMultipleSelection:YES];
 	[sites setSelectsInsertedObjects:YES];
-	[advancedAlertImage setHidden:YES];
 	
     [authView setString:kAuthorizationRightExecute];
 	[authView setDelegate:self];
@@ -46,6 +48,7 @@
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
 	{
 		[statusText setStringValue:@"Config Directory Doesn't Exist"];
+		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
@@ -55,6 +58,7 @@
 	if (![fm fileExistsAtPath:RubyLocation])
 	{
 		[statusText setStringValue:@"Ruby Not Found"];
+		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
 		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
@@ -65,6 +69,7 @@
 	if (![fm fileExistsAtPath:PassengerDir isDirectory:&isDir])
 	{
 		[statusText setStringValue:@"Passenger Not Found"];
+		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
 		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
@@ -74,13 +79,13 @@
 	if (![fm fileExistsAtPath:PassengerModuleLocation])
 	{
 		[statusText setStringValue:@"Passenger Apache Module Not Found"];
+		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
 		NSLog(@"%@",[statusText stringValue]);
 		[self setIsConfigured:NO];
 		return;
 	}
 	
-		 [statusText setStringValue:@""];
-	 [statusText setHidden:YES];
+	[statusText setStringValue:@""];
 	[self setIsConfigured:YES];
 }
 
