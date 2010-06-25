@@ -17,7 +17,7 @@
 	if (![super init])
 		return nil;
 	
-	hasSites = hasChanges = NO;
+	hasSites = hasChanges = authorized = NO;
 	
 	return self;
 }
@@ -34,13 +34,20 @@
     authorized = NO;
     [authView setString:kAuthorizationRightExecute];
     [authView setDelegate:self];
-    [authView updateStatus:NO];
+    [authView updateStatus:self];
 	[authView setAutoupdate:YES];
 }
 
 -(IBAction)authorize:(id)sender
 {
-	//kAuthorizationRightExecute (kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed)
+	AuthorizationFlags authFlags = kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed;
+	[[authView authorization] obtainWithRight:kAuthorizationRightExecute flags:authFlags error:nil];
+//	AuthorizationRef myAuthorizationRef;
+//	AuthorizationFlags authFlags = kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed;
+//
+//	OSStatus myStatus;
+//	myStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, authFlags, &myAuthorizationRef);
+
 
 }
 
@@ -61,5 +68,18 @@
 	for (PassengerApplication *site in [sites selectedObjects])
 		[site restartApplication];
 }
+
+
+- (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
+{
+	
+}
+
+- (void)authorizationViewDidDeauthorize:(SFAuthorizationView *)view
+{
+	
+}
+
+
 
 @end

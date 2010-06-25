@@ -27,7 +27,12 @@
 
 -(void)startApplication
 {
-	[self setIsRunning:YES];
+	[self createHost:address];
+	
+	if (! isRunning)
+		[self setIsRunning:YES];
+	else
+		[self stopApplication];
 }
 
 -(void)stopApplication
@@ -42,6 +47,16 @@
 
 -(void)createHost:(NSString *)hostName
 {
+	NSLog(@"Creating Host...");
+	ODSession *mySession = [ODSession defaultSession];
+	NSError *error;
+	
+	NSString *nodeName = @"/Local/Default/Hosts";
+	
+	ODNode *hostsNode = [ODNode nodeWithSession:mySession name:nodeName error:&error];
+	
+	for (id i in [hostsNode subnodeNamesAndReturnError:nil])
+		NSLog(@"%@",i);
 	
 }
 

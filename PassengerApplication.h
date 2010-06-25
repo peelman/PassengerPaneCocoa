@@ -24,6 +24,7 @@
 -(void)startApplication;
 -(void)stopApplication;
 -(void)restartApplication;
+-(void)createHost:(NSString *)hostName;
 
 
 @end
