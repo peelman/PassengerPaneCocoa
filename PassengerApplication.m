@@ -20,7 +20,7 @@
 		return nil;
 
 	[self setAppIsRunning:NO];
-	
+	[self setPort:@"80"];
 	return self;
 }
 

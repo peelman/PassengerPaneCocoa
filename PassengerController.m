@@ -31,7 +31,8 @@
 }
 
 
-
+#pragma mark -
+#pragma mark IBActions
 -(IBAction)startApplications:(id)sender
 {
 	if (!isAuthorized)
@@ -57,7 +58,30 @@
 		[site restartApplication];
 }
 
+-(IBAction)addSite:(id)sender
+{
+	[sites add:sender];
 
+	[self performSelector:@selector(selectNameField:) withObject:nameField afterDelay:0.25];
+}
+	 
+ -(void)selectNameField:(NSTextField *)field
+ {
+	 [[field window] makeFirstResponder:field];
+ }
+
+-(IBAction)openFileBrowser:(id)sender
+{
+	
+}
+
+-(IBAction)openSite:(id)sender
+{
+	
+}
+
+#pragma mark -
+#pragma mark SFAuthorizationView Delegate Methods
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
 {
 	[self setIsAuthorized:YES];

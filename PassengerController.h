@@ -22,11 +22,14 @@
 	IBOutlet NSButton *stopButton;
 	IBOutlet NSButton *restartButton;
 	IBOutlet NSButton *browseButton;
+	IBOutlet NSButton *openSiteButton;
 	IBOutlet NSButton *addSiteButton;
 	IBOutlet NSButton *removeSiteButton;
 	IBOutlet NSButton *helpButton;
 	
+	IBOutlet NSTextField *nameField;
 	IBOutlet NSTextField *addressField;
+	IBOutlet NSTextField *portField;
 	IBOutlet NSTextField *folderField;
 	
 	IBOutlet NSMatrix *modeMatrix;
@@ -44,5 +47,9 @@
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;
 -(IBAction)restartApplications:(id)sender;
+
+-(IBAction)addSite:(id)sender;
+-(IBAction)openFileBrowser:(id)sender;
+-(IBAction)openSite:(id)sender;
 
 @end

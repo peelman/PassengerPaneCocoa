@@ -27,7 +27,7 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>PassengerPaneCocoaPref.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>PassengerPaneCocoa</string>
+	<string>Passenger Config</string>
 	<key>NSPrincipalClass</key>
 	<string>PassengerPaneCocoaPref</string>
 </dict>
