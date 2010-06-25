@@ -1,4 +1,3 @@
-//
 //  PassengerApacheController.m
 //  PassengerPaneCocoa
 //

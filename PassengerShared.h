@@ -1,4 +1,3 @@
-//
 //  PassengerShared.h
 //  PassengerPaneCocoa
 //

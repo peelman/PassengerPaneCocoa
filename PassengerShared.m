@@ -1,4 +1,3 @@
-//
 //  PassengerShared.m
 //  PassengerPaneCocoa
 //

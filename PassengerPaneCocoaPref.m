@@ -1,9 +1,7 @@
-//
 //  PassengerPaneCocoaPref.m
 //  PassengerPaneCocoa
 //
-//  Created by Nick Peelman on 6/23/10.
-//  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
+//	Copyright (c) 2010 Nick Peelman <nick@peelman.us>
 //
 
 #import "PassengerPaneCocoaPref.h"

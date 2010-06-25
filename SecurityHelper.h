@@ -1,3 +1,10 @@
+//  SecurityHelper.h
+//  PassengerPaneCocoa
+//
+// Based on SecurityHelper.h from PassengerPane
+// http://github.com/alloy/passengerpane
+//
+
 #import <Cocoa/Cocoa.h>
 #import <Security/Authorization.h>
 

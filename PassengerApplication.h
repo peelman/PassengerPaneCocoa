@@ -1,9 +1,9 @@
-//
 //  PassengerApplication.h
 //  PassengerPaneCocoa
 //
 //	Copyright (c) 2010 Nick Peelman <nick@peelman.us>
 //
+
 #import <Cocoa/Cocoa.h>
 #import <SecurityFoundation/SFAuthorization.h>
 
