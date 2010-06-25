@@ -163,7 +163,7 @@
 
 -(IBAction)attemptConfiguration:(id)sender
 {
-	
+	[self checkConfiguration];
 }
 
 #pragma mark -
