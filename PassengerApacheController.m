@@ -13,8 +13,8 @@
 #pragma mark Apache Commands
 +(void)restartApache:(AuthorizationRef)authRef
 {
-	NSArray *apacheStopArgs = [NSArray arrayWithObjects:@"stop", LaunchdApacheIdent, nil];
-	NSArray *apacheStartArgs = [NSArray arrayWithObjects:@"start", LaunchdApacheIdent, nil];
+	NSArray *apacheStopArgs = [NSArray arrayWithObjects:@"unload", LaunchdApacheConf, nil];
+	NSArray *apacheStartArgs = [NSArray arrayWithObjects:@"load", LaunchdApacheConf, nil];
 	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:authRef];

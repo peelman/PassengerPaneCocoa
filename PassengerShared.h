@@ -13,7 +13,7 @@
 #pragma mark -
 #pragma mark Service Constants
 extern NSString * const LaunchdLocation; 
-extern NSString * const LaunchdApacheIdent;
+extern NSString * const LaunchdApacheConf;
 
 #pragma mark -
 #pragma mark Apache Constants

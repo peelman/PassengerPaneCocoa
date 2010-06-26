@@ -12,7 +12,7 @@
 #pragma mark -
 #pragma mark Service Constants
 NSString * const LaunchdLocation = @"/bin/launchctl";
-NSString * const LaunchdApacheIdent = @"org.apache.httpd";
+NSString * const LaunchdApacheConf = @"/System/Library/LaunchDaemons/org.apache.httpd.plist";
 
 #pragma mark -
 #pragma mark Apache Constants
