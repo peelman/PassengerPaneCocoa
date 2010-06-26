@@ -29,9 +29,10 @@ extern NSString * const PassengerModuleLocation;
 
 #pragma mark -
 #pragma mark PassengerPaneCocoa Constants
+extern NSString * const PPCApacheConfigFile;
 extern NSString * const SitesConfDir;
-extern NSString * const SitesConfEnabledExtension;
-extern NSString * const SitesConfDisabledExtension;
+extern NSString * const ConfExtension;
+extern NSString * const DisabledExtension;
 
 
 @end

@@ -7,7 +7,11 @@
 #import <Cocoa/Cocoa.h>
 #import <SecurityInterface/SFAuthorizationView.h>
 
+#import "PassengerApacheController.h"
+#import "PassengerApplication.h"
 #import "PassengerShared.h"
+#import "SecurityHelper.h"
+
 
 @interface PassengerController : NSObject {
 
@@ -48,6 +52,9 @@
 
 -(void)checkConfiguration;
 -(void)loadSites;
+-(void)configureApacheSites;
+-(void)configurePassenger;
+-(void)configureApache;
 
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;

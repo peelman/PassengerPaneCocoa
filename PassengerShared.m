@@ -27,8 +27,9 @@ NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passeng
 
 #pragma mark -
 #pragma mark PassengerPaneCocoa Constants
+NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";
 NSString * const SitesConfDir = @"/private/etc/apache2/other/passengerpanecocoa-sites/";
-NSString * const SitesConfEnabledExtension = @".conf";
-NSString * const SitesConfDisabledExtension = @".disabled";
+NSString * const ConfExtension = @".conf";
+NSString * const DisabledExtension = @".disabled";
 
 @end
