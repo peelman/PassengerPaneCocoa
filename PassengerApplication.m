@@ -93,7 +93,7 @@
 #pragma mark File Operations
 
 /*  Sample Config File
- 
+ #PassengerPane SiteName [sitenamehere]
  <VirtualHost *:80>
  ServerName www.yourhost.com
  DocumentRoot /somewhere/public    # <-- be sure to point to 'public'!

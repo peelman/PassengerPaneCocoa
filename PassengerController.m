@@ -266,6 +266,9 @@
 	{	
 		if ([site appIsRunning])
 			[site stopApplication];
+		
+		// Remove Host entry
+		// Delete Conf file
 	}
 	
 	[sites remove:sender];
