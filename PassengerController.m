@@ -70,8 +70,7 @@
 	}
 
 	// Locate Passenger
-	isDir = NO;
-	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir])
+	if (![fm fileExistsAtPath:PassengerConfigTool])
 	{
 		[statusText setStringValue:@"Passenger Not Found"];
 		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
@@ -91,7 +90,7 @@
 	}
 	
 	// Locate Passenger Apache Config File
-	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@.%@",ApacheConfDir,PPCApacheConfigFile, ConfExtension]])
+	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@.%@",ApacheConfDir, PPCApacheConfigFile, ConfExtension]])
 	{
 		[statusText setStringValue:@"Apache Not Configured to run Passenger"];
 		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
@@ -132,7 +131,8 @@
 	
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	
-	if (![fm fileExistsAtPath:@"/usr/bin/passenger-config"]) {
+	if (![fm fileExistsAtPath:PassengerConfigTool]) 
+	{
 		[statusText setStringValue:@"Attempting to install Passenger..."];
 		NSLog(@"%@", [statusText stringValue]);
 		[self installPassenger];
@@ -143,7 +143,7 @@
 	{
 		[statusText setStringValue:@"Passenger Not Linked, fixing..."];
 		NSLog(@"%@", [statusText stringValue]);
-		[self installPassenger];
+		[self createPassengerSymLink];
 	}
 	
 	[fm release];
@@ -153,7 +153,7 @@
 {
 	[statusText setStringValue:@"Configuring Apache..."];
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	NSBundle *b = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
+	NSBundle *b = [NSBundle bundleWithIdentifier:PPCBundleID];
 	NSString *confFilePath = [b pathForResource:PPCApacheConfigFile ofType:ConfExtension];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 
@@ -180,14 +180,23 @@
 	[alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
 	[alert runModal];
 	
-	NSBundle *bundle = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
+	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
 	NSString *passengerInstaller = [bundle pathForResource:@"install-passenger" ofType:@"pkg"];
 
-	NSLog(@"%@",passengerInstaller);
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
 	
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
 	[sh executeCommand:@"/usr/sbin/installer" withArgs:args];
+}
+	
+-(void)createPassengerSymLink
+{
+	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
+	NSString *passengerInstaller = [bundle pathForResource:@"passenger-create-link" ofType:@"sh"];
+
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh executeCommand:passengerInstaller withArgs:nil];
 }
 
 -(void)selectNameField:(NSTextField *)field
