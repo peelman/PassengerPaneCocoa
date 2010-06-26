@@ -24,7 +24,7 @@ extern NSString * const ApacheConfDir;
 #pragma mark -
 #pragma mark Ruby and Passenger Constants
 extern NSString * const RubyLocation;
-extern NSString * const PassengerDir;
+extern NSString * const PassengerCurrentVersDir;
 extern NSString * const PassengerModuleLocation;
 
 #pragma mark -

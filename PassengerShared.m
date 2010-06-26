@@ -22,7 +22,7 @@ NSString * const ApacheConfDir = @"/private/etc/apache2/other/";
 #pragma mark -
 #pragma mark Ruby and Passenger Constants
 NSString * const RubyLocation = @"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby";
-NSString * const PassengerDir = @"/Library/Ruby/Gems/1.8/gems/passenger-current/";
+NSString * const PassengerCurrentVersDir = @"/Library/Ruby/Gems/1.8/gems/passenger-current/";
 NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passenger-current/ext/apache2/mod_passenger.so";
 
 #pragma mark -

@@ -71,7 +71,7 @@
 
 	// Locate Passenger
 	isDir = NO;
-	if (![fm fileExistsAtPath:PassengerDir isDirectory:&isDir])
+	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir])
 	{
 		[statusText setStringValue:@"Passenger Not Found"];
 		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
@@ -91,7 +91,7 @@
 	}
 	
 	// Locate Passenger Apache Config File
-	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@",ApacheConfDir,PPCApacheConfigFile]])
+	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@.%@",ApacheConfDir,PPCApacheConfigFile, ConfExtension]])
 	{
 		[statusText setStringValue:@"Apache Not Configured to run Passenger"];
 		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
@@ -111,6 +111,7 @@
 
 -(void)configureApacheSites
 {
+	[statusText setStringValue:@"Configuring Apache Sites..."];
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	BOOL isDir = NO;	
@@ -122,15 +123,21 @@
 		[sh executeCommand:@"/bin/mkdir" withArgs:args];
 	}
 	
-	[fm release];	
+	[fm release];
 }
 
 -(void)configurePassenger
 {
+	[statusText setStringValue:@"Configuring Passenger..."];
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	// Locate Passenger Apache Module
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+
 	if (![fm fileExistsAtPath:PassengerModuleLocation])
 	{
+		NSString *passengerLatestDir = [self passengerPath];
+		NSArray *args = [NSArray arrayWithObjects:@"-s", passengerLatestDir, PassengerCurrentVersDir, nil];
+		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+		[sh executeCommand:@"/bin/ln" withArgs:args];
 		
 	}
 	[fm release];
@@ -138,12 +145,12 @@
 
 -(void)configureApache
 {
+	[statusText setStringValue:@"Configuring Apache..."];
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	NSBundle *b = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
 	NSString *confFilePath = [b pathForResource:PPCApacheConfigFile ofType:ConfExtension];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 
-	// Locate Passenger Apache Config File
 	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@",ApacheConfDir,PPCApacheConfigFile]])
 	{
 		NSArray *args = [NSArray arrayWithObjects:confFilePath, ApacheConfDir, nil];
@@ -154,15 +161,17 @@
 	[fm release];
 }
 
--(NSString *)passengerInstalled
+-(NSString *)passengerPath
 {
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	if (![fm fileExistsAtPath:@"/usr/bin/passenger-config") {
+	if (![fm fileExistsAtPath:@"/usr/bin/passenger-config"]) {
+		[statusText setStringValue:@"Attempting to install Passenger..."];
+		NSLog(@"%@", [statusText stringValue]);
 		[self installPassenger];
 	}
 	
 	NSTask *task = [[NSTask alloc] init];
-    NSArray *arguments = [NSArray arrayWithObjects: @"--version", nil];
+    NSArray *arguments = [NSArray arrayWithObjects: @"--root", nil];
     NSPipe *pipe = [NSPipe pipe];
     NSFileHandle *file = [pipe fileHandleForReading];
 	
@@ -175,18 +184,28 @@
 	NSData *data = [file readDataToEndOfFile];
     NSString *version = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if ( ![version isEqualTo:@""] )
-		  return version;
+	{
+		[statusText setStringValue:@"Passenger Detected!"];
+		return version;		
+	}
+
 	
 	return nil;
 }
 
 -(void)installPassenger
 {
+	NSLog(@"Installing Passenger...");
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	NSArray *args = [NSArray arrayWithObjects:@"|", @"gem", @"install", @"passenger", nil];
+
+	NSBundle *b = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
+	NSString *passengerInstaller = [b pathForResource:@"install-passenger" ofType:@"pkg"];
+
+	NSLog(@"%@",passengerInstaller);
+	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
 	
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-	[sh executeCommand:@"/usr/bin/yes" withArgs:args];
+	[sh executeCommand:@"/usr/sbin/installer" withArgs:args];
 }
 
 -(void)selectNameField:(NSTextField *)field
@@ -258,6 +277,7 @@
 -(IBAction)attemptConfiguration:(id)sender
 {
 	[self configureApacheSites];
+	[self configurePassenger];
 	[self configureApache];
 	[self checkConfiguration];
 }

@@ -31,6 +31,7 @@
 		990CB50111D544BD00B21EE0 /* PassengerApacheController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB4FF11D544BD00B21EE0 /* PassengerApacheController.m */; };
 		990CB51A11D54A4500B21EE0 /* PassengerShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 990CB51811D54A4500B21EE0 /* PassengerShared.h */; };
 		990CB51B11D54A4500B21EE0 /* PassengerShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB51911D54A4500B21EE0 /* PassengerShared.m */; };
+		9926F23E11D5C24900ED3BB4 /* install-passenger.pkg in Resources */ = {isa = PBXBuildFile; fileRef = 9926F23D11D5C24900ED3BB4 /* install-passenger.pkg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		990CB4FF11D544BD00B21EE0 /* PassengerApacheController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerApacheController.m; sourceTree = "<group>"; };
 		990CB51811D54A4500B21EE0 /* PassengerShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerShared.h; sourceTree = "<group>"; };
 		990CB51911D54A4500B21EE0 /* PassengerShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerShared.m; sourceTree = "<group>"; };
+		9926F23D11D5C24900ED3BB4 /* install-passenger.pkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-pkg"; path = "install-passenger.pkg"; sourceTree = "<group>"; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* PassengerPaneCocoaPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerPaneCocoaPref.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* PassengerPaneCocoaPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerPaneCocoaPref.m; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9926F23D11D5C24900ED3BB4 /* install-passenger.pkg */,
 				990BC79011D4589300CD37C0 /* httpd-passengerpanecocoa.conf */,
 				3EEF3FC211D3B2C2005FBAF1 /* AlertCautionIcon.icns */,
 				3EEF3FC311D3B2C2005FBAF1 /* AlertNoteIcon.icns */,
@@ -239,6 +242,7 @@
 				3EEF3FC611D3B2C2005FBAF1 /* AlertNoteIcon.icns in Resources */,
 				3EEF3FC711D3B2C2005FBAF1 /* AlertStopIcon.icns in Resources */,
 				990BC79111D4589300CD37C0 /* httpd-passengerpanecocoa.conf in Resources */,
+				9926F23E11D5C24900ED3BB4 /* install-passenger.pkg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
