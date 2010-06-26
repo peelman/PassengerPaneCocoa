@@ -3,4 +3,7 @@
 A Mac OS X system preference pane which aids in quickly setting up Rails
 applications with Phusion Passenger; based on the PassengerPane project.
 
-Definitely a work in progress...
+==Requirements
+Requires Mac OS X 10.6.4
+
+PassengerPaneCocoa will detect and auto-configure the external components necessary to run.  It will have a one-button approach to installing Passenger and configuring Apache, no Terminal required!
