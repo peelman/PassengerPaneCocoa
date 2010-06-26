@@ -100,6 +100,8 @@
  <Directory /somewhere/public>
  AllowOverride all              # <-- relax Apache security settings
  Options -MultiViews            # <-- MultiViews must be turned off
+ 	Order deny,allow
+	Allow from all
  </Directory>
  </VirtualHost>
  

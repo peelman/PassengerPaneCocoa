@@ -171,7 +171,15 @@
 {
 	[statusText setStringValue:@"Installing Passenger..."];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-
+	
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Warning!"
+									 defaultButton:@"OK"
+								   alternateButton:nil
+									   otherButton:nil 
+						 informativeTextWithFormat:@"Installing Passenger can take a few minutes. System Preferences may become unresponsive (spinning beach ball of doom) during this time.  This is normal! However, if the process lasts longer than a few minutes, you may need to Force Quit System Prefs"];
+	[alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
+	[alert runModal];
+	
 	NSBundle *bundle = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
 	NSString *passengerInstaller = [bundle pathForResource:@"install-passenger" ofType:@"pkg"];
 
@@ -254,6 +262,9 @@
 	[self configurePassenger];
 	[self configureApache];
 	[self checkConfiguration];
+	
+	if (isConfigured)
+		[PassengerApacheController restartApache:[[authView authorization] authorizationRef]];
 }
 
 #pragma mark -
