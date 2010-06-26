@@ -18,4 +18,7 @@
 - (AuthorizationRef)authorizationRef;
 - (void)deauthorize;
 - (BOOL)isAuthorized;
+
+void exitCleanly(int code, NSAutoreleasePool *pool);
+
 @end

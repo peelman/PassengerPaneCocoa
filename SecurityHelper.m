@@ -30,11 +30,14 @@
 }
 
 // Code from: http://svn.kismac-ng.org/kmng/trunk/Subprojects/BIGeneric/BLAuthentication.m
+// More code from http://forums.macrumors.com/showthread.php?t=508394
+
 -(BOOL)executeCommand:(NSString *)pathToCommand withArgs:(NSArray *)arguments {
 	char* args[30]; // can only handle 30 arguments to a given command
 	OSStatus err = 0;
 	unsigned int i = 0;
-	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
 	if( arguments == nil || [arguments count] < 1  ) 
 	{
 		err = AuthorizationExecuteWithPrivileges(authorizationRef, [pathToCommand fileSystemRepresentation], 0, NULL, NULL);
@@ -47,8 +50,34 @@
 			i++;
 		}
 		args[i] = NULL;
-		err = AuthorizationExecuteWithPrivileges(authorizationRef, [pathToCommand fileSystemRepresentation], 0, args, NULL);
+		
+		int pid;
+		FILE *commPipe = NULL;
+		char buffer[1024];
+		int bytesRead;
+		
+		err = AuthorizationExecuteWithPrivileges(authorizationRef, [pathToCommand fileSystemRepresentation], 0, args, &commPipe);
+		
+		for (;;)
+		{
+			bytesRead = read(0, buffer, 1024);
+			if (bytesRead < 1) break;
+			fwrite(buffer, 1, bytesRead, commPipe);
+		}
+		
+		fflush(commPipe);
+		fclose(commPipe);
+		
+		int wait_status;
+		pid = wait(&wait_status);
+		if (pid == -1 || ! WIFEXITED(wait_status))
+		{
+			exitCleanly(-1,pool);
+		}
+		
+		exitCleanly(WEXITSTATUS(err),pool);
 	}
+	[pool release];
 	
 	if(err!=0) 
 	{
@@ -83,6 +112,12 @@
 	{
 		return YES;
 	}
+}
+
+void exitCleanly(int code, NSAutoreleasePool *pool)
+{
+	[pool release];
+	exit(code);
 }
 
 @end
