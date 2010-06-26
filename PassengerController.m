@@ -79,6 +79,16 @@
 		return;
 	}
 	
+	// Locate Passsenger Link
+	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
+	{
+		[statusText setStringValue:@"Passenger Not Linked"];
+		[statusImage setImage:[NSImage imageNamed:NSImageNameStatusPartiallyAvailable]];
+		NSLog(@"%@", [statusText stringValue]);
+		[self setIsConfigured:NO];
+		return;
+	}
+	
 	// Locate Passenger Apache Module
 	if (![fm fileExistsAtPath:PassengerModuleLocation])
 	{
@@ -111,13 +121,15 @@
 -(void)configureApacheSites
 {
 	[statusText setStringValue:@"Configuring Apache Sites..."];
+	NSLog(@"%@", [statusText stringValue]);
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	BOOL isDir = NO;	
 	
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
 	{
 		NSArray *args = [NSArray arrayWithObjects:SitesConfDir, nil];
+		
+		SecurityHelper *sh = [SecurityHelper sharedInstance];
 		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
 		[sh executeCommand:@"/bin/mkdir" withArgs:args];
 	}
@@ -128,7 +140,7 @@
 -(void)configurePassenger
 {
 	[statusText setStringValue:@"Configuring Passenger..."];
-	
+	NSLog(@"%@", [statusText stringValue]);	
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	
 	if (![fm fileExistsAtPath:PassengerConfigTool]) 
@@ -141,7 +153,7 @@
 	BOOL isDir = NO;
 	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
 	{
-		[statusText setStringValue:@"Passenger Not Linked, fixing..."];
+		[statusText setStringValue:@"Linking Current Version..."];
 		NSLog(@"%@", [statusText stringValue]);
 		[self createPassengerSymLink];
 	}
@@ -152,14 +164,16 @@
 -(void)configureApache
 {
 	[statusText setStringValue:@"Configuring Apache..."];
+	NSLog(@"%@", [statusText stringValue]);
+	
 	NSFileManager *fm = [[NSFileManager alloc] init];
 	NSBundle *b = [NSBundle bundleWithIdentifier:PPCBundleID];
 	NSString *confFilePath = [b pathForResource:PPCApacheConfigFile ofType:ConfExtension];
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
 
 	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@",ApacheConfDir,PPCApacheConfigFile]])
 	{
 		NSArray *args = [NSArray arrayWithObjects:confFilePath, ApacheConfDir, nil];
+		SecurityHelper *sh = [SecurityHelper sharedInstance];
 		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
 		[sh executeCommand:@"/bin/cp" withArgs:args];
 	}
@@ -169,8 +183,8 @@
 
 -(void)installPassenger
 {
-	[statusText setStringValue:@"Installing Passenger..."];
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[statusText setStringValue:@"Installing Passenger...please wait!"];
+	NSLog(@"%@", [statusText stringValue]);
 	
 	NSAlert *alert = [NSAlert alertWithMessageText:@"Warning!"
 									 defaultButton:@"OK"
@@ -185,6 +199,7 @@
 
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
 	
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
 	[sh executeCommand:@"/usr/sbin/installer" withArgs:args];
 }
@@ -192,11 +207,13 @@
 -(void)createPassengerSymLink
 {
 	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *passengerInstaller = [bundle pathForResource:@"passenger-create-link" ofType:@"sh"];
+	NSString *passengerLinkScript = [bundle pathForResource:@"passenger-create-link" ofType:@"sh"];
 
+	NSArray *args = [NSArray arrayWithObjects:passengerLinkScript, nil];
+	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-	[sh executeCommand:passengerInstaller withArgs:nil];
+	[sh executeCommand:@"/bin/bash" withArgs:args];
 }
 
 -(void)selectNameField:(NSTextField *)field
@@ -245,7 +262,6 @@
 
 -(IBAction)removeSite:(id)sender
 {
-	NSLog(@"Removing Selected Sites");
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
 		if ([site appIsRunning])
@@ -280,7 +296,6 @@
 #pragma mark SFAuthorizationView Delegate Methods
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
 {
-	NSLog(@"AuthView Did Authorize");
 	for (PassengerApplication *pa in [sites arrangedObjects])
 		[pa setAuthRef:[[authView authorization] authorizationRef]];
 	
@@ -289,7 +304,6 @@
 
 - (void)authorizationViewDidDeauthorize:(SFAuthorizationView *)view
 {
-	NSLog(@"AuthView Did Deauthorize");
 	for (PassengerApplication *pa in [sites arrangedObjects])
 		[pa setAuthRef:NULL];
 	
