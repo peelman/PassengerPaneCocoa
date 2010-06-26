@@ -2,4 +2,7 @@
 
 gem install passenger -y -q
 /usr/bin/passenger-install-apache2-module -a
+
+ln -s `/usr/bin/passenger-config --root` /Library/Ruby/Gems/1.8/gems/passenger-current
+
 exit 0;

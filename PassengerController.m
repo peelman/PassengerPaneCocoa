@@ -129,17 +129,23 @@
 -(void)configurePassenger
 {
 	[statusText setStringValue:@"Configuring Passenger..."];
+	
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
-
-	if (![fm fileExistsAtPath:PassengerModuleLocation])
-	{
-		NSString *passengerLatestDir = [self passengerPath];
-		NSArray *args = [NSArray arrayWithObjects:@"-s", passengerLatestDir, PassengerCurrentVersDir, nil];
-		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-		[sh executeCommand:@"/bin/ln" withArgs:args];
-		
+	
+	if (![fm fileExistsAtPath:@"/usr/bin/passenger-config"]) {
+		[statusText setStringValue:@"Attempting to install Passenger..."];
+		NSLog(@"%@", [statusText stringValue]);
+		[self installPassenger];
 	}
+	
+	BOOL isDir = NO;
+	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
+	{
+		[statusText setStringValue:@"Passenger Not Linked, fixing..."];
+		NSLog(@"%@", [statusText stringValue]);
+		[self installPassenger];
+	}
+	
 	[fm release];
 }
 
@@ -161,45 +167,13 @@
 	[fm release];
 }
 
--(NSString *)passengerPath
-{
-	NSFileManager *fm = [[NSFileManager alloc] init];
-	if (![fm fileExistsAtPath:@"/usr/bin/passenger-config"]) {
-		[statusText setStringValue:@"Attempting to install Passenger..."];
-		NSLog(@"%@", [statusText stringValue]);
-		[self installPassenger];
-	}
-	
-	NSTask *task = [[NSTask alloc] init];
-    NSArray *arguments = [NSArray arrayWithObjects: @"--root", nil];
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *file = [pipe fileHandleForReading];
-	
-    [task setLaunchPath: @"/usr/bin/passenger-config"];
-	[task setArguments: arguments];
-	[task setStandardOutput: pipe];
-	[task launch];
-    [task waitUntilExit];
-	
-	NSData *data = [file readDataToEndOfFile];
-    NSString *version = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	if ( ![version isEqualTo:@""] )
-	{
-		[statusText setStringValue:@"Passenger Detected!"];
-		return version;		
-	}
-
-	
-	return nil;
-}
-
 -(void)installPassenger
 {
-	NSLog(@"Installing Passenger...");
+	[statusText setStringValue:@"Installing Passenger..."];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 
-	NSBundle *b = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
-	NSString *passengerInstaller = [b pathForResource:@"install-passenger" ofType:@"pkg"];
+	NSBundle *bundle = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
+	NSString *passengerInstaller = [bundle pathForResource:@"install-passenger" ofType:@"pkg"];
 
 	NSLog(@"%@",passengerInstaller);
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
