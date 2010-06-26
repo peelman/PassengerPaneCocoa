@@ -5,12 +5,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "PassengerShared.h"
+#import "SecurityHelper.h"
 
 @interface PassengerApacheController : NSObject {
-
+	NSArray *ApacheStopArgs;
+	NSArray *ApacheStartArgs;
 }
 
--(void)restartApache;
++(void)restartApache:(AuthorizationRef)authRef;
 
 @end

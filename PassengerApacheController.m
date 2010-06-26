@@ -11,8 +11,16 @@
 
 #pragma mark -
 #pragma mark Apache Commands
--(void)restartApache
++(void)restartApache:(AuthorizationRef)authRef
 {
+	ApacheStopArgs = [NSArray arrayWithObjects:ServiceApacheIdent, @"stop"];
+	ApacheStartArgs = [NSArray arrayWithObjects:ServiceApacheIdent, @"start"];
+	
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	
+	[sh setAuthorizationRef:authRef];
+	[sh executeCommand:ServiceLocation withArgs:ApacheStopArgs];
+	[sh executeCommand:ServiceLocation withArgs:ApacheStartArgs];
 	
 }
 
