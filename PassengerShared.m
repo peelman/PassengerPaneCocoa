@@ -21,7 +21,7 @@ NSString * const ApacheConfDir = @"/private/etc/apache2/other/";
 
 #pragma mark -
 #pragma mark Ruby and Passenger Constants
-NSString * const RubyLocation = @"/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby";
+NSString * const RubyLocation = @"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby";
 NSString * const PassengerDir = @"/Library/Ruby/Gems/1.8/gems/passenger-current/";
 NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passenger-current/ext/apache2/mod_passenger.so";
 
@@ -29,7 +29,7 @@ NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passeng
 #pragma mark PassengerPaneCocoa Constants
 NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";
 NSString * const SitesConfDir = @"/private/etc/apache2/other/passengerpanecocoa-sites/";
-NSString * const ConfExtension = @".conf";
-NSString * const DisabledExtension = @".disabled";
+NSString * const ConfExtension = @"conf";
+NSString * const DisabledExtension = @"disabled";
 
 @end

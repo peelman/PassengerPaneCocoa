@@ -55,6 +55,8 @@
 -(void)configureApacheSites;
 -(void)configurePassenger;
 -(void)configureApache;
+-(NSString *)passengerInstalled;
+-(void)installPassenger;
 
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;

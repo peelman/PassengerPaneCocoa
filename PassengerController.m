@@ -139,19 +139,54 @@
 -(void)configureApache
 {
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	NSBundle *b = [NSBundle mainBundle];
+	NSBundle *b = [NSBundle bundleWithIdentifier:@"us.peelman.PassengerPaneCocoa"];
 	NSString *confFilePath = [b pathForResource:PPCApacheConfigFile ofType:ConfExtension];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	NSLog(@"%@",confFilePath);
+
 	// Locate Passenger Apache Config File
 	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@",ApacheConfDir,PPCApacheConfigFile]])
 	{
-		NSArray *args = [NSArray arrayWithObjects:[b pathForResource:PPCApacheConfigFile ofType:ConfExtension], ApacheConfDir, nil];
+		NSArray *args = [NSArray arrayWithObjects:confFilePath, ApacheConfDir, nil];
 		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
 		[sh executeCommand:@"/bin/cp" withArgs:args];
 	}
 		 
 	[fm release];
+}
+
+-(NSString *)passengerInstalled
+{
+	NSFileManager *fm = [[NSFileManager alloc] init];
+	if (![fm fileExistsAtPath:@"/usr/bin/passenger-config") {
+		[self installPassenger];
+	}
+	
+	NSTask *task = [[NSTask alloc] init];
+    NSArray *arguments = [NSArray arrayWithObjects: @"--version", nil];
+    NSPipe *pipe = [NSPipe pipe];
+    NSFileHandle *file = [pipe fileHandleForReading];
+	
+    [task setLaunchPath: @"/usr/bin/passenger-config"];
+	[task setArguments: arguments];
+	[task setStandardOutput: pipe];
+	[task launch];
+    [task waitUntilExit];
+	
+	NSData *data = [file readDataToEndOfFile];
+    NSString *version = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	if ( ![version isEqualTo:@""] )
+		  return version;
+	
+	return nil;
+}
+
+-(void)installPassenger
+{
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	NSArray *args = [NSArray arrayWithObjects:@"|", @"gem", @"install", @"passenger", nil];
+	
+	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh executeCommand:@"/usr/bin/yes" withArgs:args];
 }
 
 -(void)selectNameField:(NSTextField *)field
@@ -222,6 +257,7 @@
 
 -(IBAction)attemptConfiguration:(id)sender
 {
+	[self configureApacheSites];
 	[self configureApache];
 	[self checkConfiguration];
 }
