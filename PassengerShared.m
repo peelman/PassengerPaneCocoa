@@ -27,11 +27,25 @@ NSString * const PassengerCurrentVersDir = @"/Library/Ruby/Gems/1.8/gems/passeng
 NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passenger-current/ext/apache2/mod_passenger.so";
 
 #pragma mark -
+#pragma mark System Constants
+NSString * const BashLocation = @"/bin/bash";
+NSString * const CpLocation = @"/bin/cp";
+NSString * const MkdirLocation = @"/bin/mkdir";
+NSString * const InstallerLocation = @"/usr/sbin/installer";
+
+#pragma mark -
 #pragma mark PassengerPaneCocoa Constants
 NSString * const PPCBundleID = @"us.peelman.PassengerPaneCocoa";
 NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";
 NSString * const SitesConfDir = @"/private/etc/apache2/other/passengerpanecocoa-sites/";
+NSString * const PPCCreateLinkScriptName = @"passenger-create-link";
+NSString * const PPCInstallPassengerPackageName = @"install-passenger";
+
+#pragma mark -
+#pragma mark File Extension Constants
 NSString * const ConfExtension = @"conf";
 NSString * const DisabledExtension = @"disabled";
+NSString * const ShellScriptExtension = @"sh";
+NSString * const PkgExtension = @"pkg";
 
 @end

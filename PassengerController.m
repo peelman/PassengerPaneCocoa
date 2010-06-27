@@ -131,7 +131,7 @@
 		
 		SecurityHelper *sh = [SecurityHelper sharedInstance];
 		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-		[sh executeCommand:@"/bin/mkdir" withArgs:args];
+		[sh executeCommand:MkdirLocation withArgs:args];
 	}
 	
 	[fm release];
@@ -175,7 +175,7 @@
 		NSArray *args = [NSArray arrayWithObjects:confFilePath, ApacheConfDir, nil];
 		SecurityHelper *sh = [SecurityHelper sharedInstance];
 		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-		[sh executeCommand:@"/bin/cp" withArgs:args];
+		[sh executeCommand:CpLocation withArgs:args];
 	}
 		 
 	[fm release];
@@ -195,30 +195,38 @@
 	[alert runModal];
 	
 	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *passengerInstaller = [bundle pathForResource:@"install-passenger" ofType:@"pkg"];
+	NSString *passengerInstaller = [bundle pathForResource:PPCInstallPassengerPackageName ofType:PkgExtension];
 
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
 	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-	[sh executeCommand:@"/usr/sbin/installer" withArgs:args];
+	[sh executeCommand:InstallerLocation withArgs:args];
 }
 	
 -(void)createPassengerSymLink
 {
 	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *passengerLinkScript = [bundle pathForResource:@"passenger-create-link" ofType:@"sh"];
+	NSString *passengerLinkScript = [bundle pathForResource:PPCCreateLinkScriptName ofType:ShellScriptExtension];
 
 	NSArray *args = [NSArray arrayWithObjects:passengerLinkScript, nil];
 	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-	[sh executeCommand:@"/bin/bash" withArgs:args];
+	[sh executeCommand:BashLocation withArgs:args];
 }
 
 -(void)selectNameField:(NSTextField *)field
 {
 	[[field window] makeFirstResponder:field];
+}
+
+-(void)loadAllHosts
+{
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh executeCommand:BashLocation withArgs:nil];
+	
 }
 
 #pragma mark -

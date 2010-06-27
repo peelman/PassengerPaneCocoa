@@ -29,12 +29,26 @@ extern NSString * const PassengerCurrentVersDir;
 extern NSString * const PassengerModuleLocation;
 
 #pragma mark -
+#pragma mark System Constants
+extern NSString * const BashLocation;
+extern NSString * const CpLocation;
+extern NSString * const MkdirLocation;
+extern NSString * const InstallerLocation;
+
+#pragma mark -
 #pragma mark PassengerPaneCocoa Constants
 extern NSString * const PPCBundleID;
 extern NSString * const PPCApacheConfigFile;
 extern NSString * const SitesConfDir;
+extern NSString * const PPCCreateLinkScriptName;
+extern NSString * const PPCInstallPassengerPackageName;
+
+#pragma mark -
+#pragma mark File Extension Constant
 extern NSString * const ConfExtension;
 extern NSString * const DisabledExtension;
+extern NSString * const ShellScriptExtension;
+extern NSString * const PkgExtension;
 
 
 @end
