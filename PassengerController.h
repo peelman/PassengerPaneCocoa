@@ -19,7 +19,9 @@
 	IBOutlet NSPanel *advancedView;
 	IBOutlet NSView *prefsView;
 	IBOutlet NSArrayController *sites;
+	IBOutlet NSArrayController *advancedHostsArray;
 	IBOutlet NSTableView *sitesTableView;
+	IBOutlet NSTableView *advancedHostsTableView;
 	IBOutlet SFAuthorizationView *authView;
 	IBOutlet NSImageView *statusImage;
 	
@@ -36,6 +38,7 @@
 	IBOutlet NSButton *advancedUpdatePassengerButton;
 	IBOutlet NSButton *advancedReLinkPassengerButton;
 	IBOutlet NSButton *advancedCloseButton;
+	IBOutlet NSButton *advancedHostsRemoveButton;
 	
 	IBOutlet NSTextField *nameField;
 	IBOutlet NSTextField *addressField;
