@@ -298,6 +298,10 @@
 		[PassengerApacheController restartApache:[[authView authorization] authorizationRef]];
 }
 
+-(IBAction)restartApache:(id)sender
+{
+	
+}
 
 -(IBAction)openAdvancedSheet:(id)sender
 {
