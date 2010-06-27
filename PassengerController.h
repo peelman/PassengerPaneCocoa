@@ -76,6 +76,7 @@
 -(IBAction)openFileBrowser:(id)sender;
 -(IBAction)openSite:(id)sender;
 -(IBAction)attemptConfiguration:(id)sender;
+-(IBAction)restartApache:(id)sender;
 -(IBAction)openAdvancedSheet:(id)sender;
 -(IBAction)closeAdvancedSheet:(id)sender;
 @end
