@@ -160,6 +160,13 @@
 		[self createPassengerSymLink];
 	}
 	
+	if (![fm fileExistsAtPath:PassengerModuleLocation])
+	{
+		[statusText setStringValue:@"Attempting to install Passenger Module..."];
+		NSLog(@"%@", [statusText stringValue]);
+		[self createPassengerSymLink];
+	}
+	
 	[fm release];
 }
 
@@ -192,7 +199,7 @@
 									 defaultButton:@"OK"
 								   alternateButton:nil
 									   otherButton:nil 
-						 informativeTextWithFormat:@"Installing Passenger can take a few minutes. System Preferences may become unresponsive (spinning beach ball of doom) during this time.  This is normal! However, if the process lasts longer than a few minutes, you may need to Force Quit System Prefs"];
+						 informativeTextWithFormat:@"Installing Passenger can take a few minutes. System Preferences may become unresponsive (spinning beach ball of doom) during this time.  This is normal! However, if the process lasts longer than a few minutes, you may need to Force Quit System Prefences"];
 	[alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
 	[alert runModal];
 	
@@ -216,6 +223,29 @@
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
 	[sh executeCommand:BashLocation withArgs:args];
+}
+
+-(void)installPassengerApacheMod
+{
+	[statusText setStringValue:@"Installing Passenger Apache Module...please wait!"];
+	NSLog(@"%@", [statusText stringValue]);
+	
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Warning!"
+									 defaultButton:@"OK"
+								   alternateButton:nil
+									   otherButton:nil 
+						 informativeTextWithFormat:@"Installing the Apache Module for Passenger can take a few minutes. System Preferences may become unresponsive (spinning beach ball of doom) during this time.  This is normal! However, if the process lasts longer than a few minutes, you may need to Force Quit System Preferences"];
+	[alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
+	[alert runModal];
+	
+	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
+	NSString *modInstaller = [bundle pathForResource:PPCInstallPassengerApacheModPackageName ofType:PkgExtension];
+	
+	NSArray *args = [NSArray arrayWithObjects:@"-pkg", modInstaller, @"-target", @"/", nil];
+	
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh executeCommand:InstallerLocation withArgs:args];
 }
 
 -(void)selectNameField:(NSTextField *)field
