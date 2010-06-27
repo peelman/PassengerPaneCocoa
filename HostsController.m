@@ -16,7 +16,6 @@
 
 +(void)createHost:(NSString *)hostName withAuthRef:(AuthorizationRef)authRef
 {
-	NSLog(@"Creating Host...");
 	if (authRef == NULL)
 		return;
 
@@ -32,8 +31,6 @@
 {
 	if (authRef == NULL)
 		return;
-	
-	NSLog(@"Removing Host...");
 	
 	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
 	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-delete", dsclPath, nil];
