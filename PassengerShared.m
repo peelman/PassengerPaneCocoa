@@ -40,7 +40,7 @@ NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";
 NSString * const SitesConfDir = @"/private/etc/apache2/other/passengerpanecocoa-sites/";
 NSString * const PPCCreateLinkScriptName = @"passenger-create-link";
 NSString * const PPCInstallPassengerPackageName = @"install-passenger";
-
+NSString * const PPCInstallPassengerApacheModPackageName = @"install-passenger-apache-mod";
 #pragma mark -
 #pragma mark File Extension Constants
 NSString * const ConfExtension = @"conf";

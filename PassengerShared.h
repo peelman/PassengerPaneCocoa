@@ -42,6 +42,7 @@ extern NSString * const PPCApacheConfigFile;
 extern NSString * const SitesConfDir;
 extern NSString * const PPCCreateLinkScriptName;
 extern NSString * const PPCInstallPassengerPackageName;
+extern NSString * const PPCInstallPassengerApacheModPackageName;
 
 #pragma mark -
 #pragma mark File Extension Constant

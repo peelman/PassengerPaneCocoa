@@ -38,7 +38,10 @@
 		NSMutableDictionary *md = [NSMutableDictionary dictionaryWithObject:i forKey:@"address"];
 		for (PassengerApplication *site in [[controller sites] arrangedObjects])
 			if ([[site address] isEqualTo:i])
+			{
 				[md setValue:[NSNumber numberWithBool:YES] forKey:@"inUse"];
+				break;
+			}
 			else
 				[md setValue:[NSNumber numberWithBool:NO] forKey:@"inUse"];
 

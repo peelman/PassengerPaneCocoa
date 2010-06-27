@@ -65,6 +65,7 @@
 -(void)configureApache;
 -(void)installPassenger;
 -(void)createPassengerSymLink;
+-(void)installPassengerApacheMod;
 
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;
