@@ -6,6 +6,7 @@
 
 #import "HostsController.h"
 
+#import "SecurityHelper.h"
 
 @implementation HostsController
 

@@ -7,7 +7,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "PassengerShared.h"
-#import "SecurityHelper.h"
 
 @interface HostsController : NSObject {
 	
