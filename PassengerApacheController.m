@@ -6,6 +6,7 @@
 
 #import "PassengerApacheController.h"
 
+#import "SecurityHelper.h"
 
 @implementation PassengerApacheController
 

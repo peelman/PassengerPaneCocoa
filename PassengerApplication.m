@@ -6,7 +6,8 @@
 
 #import "PassengerApplication.h"
 
-#import <OpenDirectory/OpenDirectory.h>
+#import "HostsController.h"
+#import "SecurityHelper.h"
 
 @implementation PassengerApplication
 

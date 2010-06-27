@@ -6,7 +6,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PassengerShared.h"
-#import "SecurityHelper.h"
 
 @interface PassengerApacheController : NSObject {
 	NSArray *ApacheStopArgs;

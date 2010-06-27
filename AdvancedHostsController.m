@@ -4,6 +4,7 @@
 //	Copyright (c) 2010 Nick Peelman <nick@peelman.us>
 //
 
+#import "HostsController.h"
 #import "AdvancedHostsController.h"
 #import "PassengerController.h"
 #import "PassengerApplication.h"

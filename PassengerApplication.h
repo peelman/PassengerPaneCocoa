@@ -6,9 +6,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "HostsController.h"
 #import "PassengerShared.h"
-#import "SecurityHelper.h"
 
 @interface PassengerApplication : NSObject {
 	NSString *name, *address, *port, *path;
