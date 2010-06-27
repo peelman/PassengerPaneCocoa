@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>install-passenger 1.0 Copyrights © 2010 Nick Peelman</string>
+	<string>install-passenger-apache-mod 1.0 Copyrights © 2010 Nick Peelman</string>
 	<key>CFBundleIdentifier</key>
-	<string>us.peelman.passengerpanecocoa.installpassenger</string>
+	<string>us.peelman.passengerpanecocoa.installpassengerapachemod</string>
 	<key>CFBundleName</key>
-	<string>install-passenger</string>
+	<string>install-passenger-apache-mod</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>IFMajorVersion</key>
@@ -17,7 +17,7 @@
 	<key>IFMinorVersion</key>
 	<integer>0</integer>
 	<key>IFPkgBuildDate</key>
-	<date>2010-06-27T03:13:27Z</date>
+	<date>2010-06-27T03:13:30Z</date>
 	<key>IFPkgBuildVersion</key>
 	<string>10F569</string>
 	<key>IFPkgCreator</key>
