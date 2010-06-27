@@ -136,7 +136,7 @@
 		NSArray *args = [NSArray arrayWithObjects:SitesConfDir, nil];
 		
 		SecurityHelper *sh = [SecurityHelper sharedInstance];
-		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+		[sh setAuthorizationRef:[self authRef]];
 		[sh executeCommand:MkdirLocation withArgs:args];
 	}
 	
@@ -187,7 +187,7 @@
 	{
 		NSArray *args = [NSArray arrayWithObjects:confFilePath, ApacheConfDir, nil];
 		SecurityHelper *sh = [SecurityHelper sharedInstance];
-		[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+		[sh setAuthorizationRef:[self authRef]];
 		[sh executeCommand:CpLocation withArgs:args];
 	}
 		 
@@ -213,7 +213,7 @@
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
 	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh setAuthorizationRef:[self authRef]];
 	[sh executeCommand:InstallerLocation withArgs:args];
 }
 	
@@ -225,7 +225,7 @@
 	NSArray *args = [NSArray arrayWithObjects:passengerLinkScript, nil];
 	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh setAuthorizationRef:[self authRef]];
 	[sh executeCommand:BashLocation withArgs:args];
 }
 
@@ -248,7 +248,7 @@
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", modInstaller, @"-target", @"/", nil];
 	
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
+	[sh setAuthorizationRef:[self authRef]];
 	[sh executeCommand:InstallerLocation withArgs:args];
 }
 
@@ -273,7 +273,7 @@
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
 		if ([site authRef] == NULL)
-			[site setAuthRef:[[authView authorization] authorizationRef]];
+			[site setAuthRef:[self authRef]];
 		
 		[site startApplication];
 	}
@@ -284,7 +284,7 @@
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
 		if ([site authRef] == NULL)
-			[site setAuthRef:[[authView authorization] authorizationRef]];
+			[site setAuthRef:[self authRef]];
 		
 		[site stopApplication];
 	}
@@ -334,12 +334,12 @@
 	[self checkConfiguration];
 	
 	if (isConfigured)
-		[PassengerApacheController restartApache:[[authView authorization] authorizationRef]];
+		[PassengerApacheController restartApache:[self authRef]];
 }
 
 -(IBAction)restartApache:(id)sender
 {
-	
+	[PassengerApacheController restartApache:[self authRef]];
 }
 
 -(IBAction)openAdvancedSheet:(id)sender
@@ -359,7 +359,7 @@
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
 {
 	for (PassengerApplication *pa in [sites arrangedObjects])
-		[pa setAuthRef:[[authView authorization] authorizationRef]];
+		[pa setAuthRef:[self authRef]];
 	
 	[self setIsAuthorized:YES];
 }
