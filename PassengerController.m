@@ -248,6 +248,11 @@
 	[sh executeCommand:InstallerLocation withArgs:args];
 }
 
+-(AuthorizationRef)authRef
+{
+	return [[authView authorization] authorizationRef];
+}
+
 -(void)selectNameField:(NSTextField *)field
 {
 	[[field window] makeFirstResponder:field];

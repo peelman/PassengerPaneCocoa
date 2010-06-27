@@ -67,6 +67,9 @@
 -(void)createPassengerSymLink;
 -(void)installPassengerApacheMod;
 
+-(AuthorizationRef)authRef;
+-(void)selectNameField:(NSTextField *)field;
+
 -(IBAction)startApplications:(id)sender;
 -(IBAction)stopApplications:(id)sender;
 -(IBAction)restartApplications:(id)sender;

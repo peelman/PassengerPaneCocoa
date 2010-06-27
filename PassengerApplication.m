@@ -34,7 +34,7 @@
 	if (appIsRunning)
 		return;
 	
-	[self createHost:address];
+	[HostsController createHost:address withAuthRef:authRef];
 	[self setAppIsRunning:YES];
 }
 
@@ -48,7 +48,7 @@
 	if (!appIsRunning)
 		return;
 	
-	[self removeHost:address];
+	[HostsController removeHost:address withAuthRef:authRef];
 
 	[self setAppIsRunning:NO];
 }
@@ -56,37 +56,6 @@
 -(void)restartApplication
 {
 	[self setAppIsRunning:YES];	
-}
-
-#pragma mark -
-#pragma mark DSCL Commands
--(void)createHost:(NSString *)hostName
-{
-	NSLog(@"Creating Host...");
-	if (authRef == NULL)
-		return;
-
-	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
-	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-create", dsclPath, @"IPAddress", @"127.0.0.1", nil];
-	
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	[sh setAuthorizationRef:[self authRef]];
-	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
-}
-
--(void)removeHost:(NSString *)hostName
-{
-	if (authRef == NULL)
-		return;
-	
-	NSLog(@"Removing Host...");
-	
-	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
-	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-delete", dsclPath, nil];
-	
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	[sh setAuthorizationRef:[self authRef]];
-	[sh executeCommand:@"/usr/bin/dscl" withArgs:args];
 }
 
 #pragma mark -

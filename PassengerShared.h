@@ -5,7 +5,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <SecurityFoundation/SFAuthorization.h>
 
 @interface PassengerShared : NSObject {
 

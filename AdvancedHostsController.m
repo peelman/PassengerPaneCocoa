@@ -51,7 +51,11 @@
 }
 -(IBAction)removeSelectedHost:(id)sender
 {
-	
+	for (id i in [hostsArray selectedObjects])
+	{
+		[HostsController removeHost:[i valueForKey:@"address"] withAuthRef:[controller authRef]];
+	}
+	[self loadAllHosts];
 }
 
 -(IBAction)reloadHosts:(id)sender

@@ -5,8 +5,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <SecurityFoundation/SFAuthorization.h>
 
+#import "HostsController.h"
+#import "PassengerShared.h"
 #import "SecurityHelper.h"
 
 @interface PassengerApplication : NSObject {
@@ -27,7 +28,5 @@
 -(void)startApplication;
 -(void)stopApplication;
 -(void)restartApplication;
--(void)createHost:(NSString *)hostName;
--(void)removeHost:(NSString *)hostName;
 
 @end
