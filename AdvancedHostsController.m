@@ -6,6 +6,7 @@
 
 #import "AdvancedHostsController.h"
 #import "PassengerController.h"
+#import "PassengerApplication.h"
 
 @implementation AdvancedHostsController
 

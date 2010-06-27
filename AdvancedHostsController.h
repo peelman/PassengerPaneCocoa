@@ -6,7 +6,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "PassengerApplication.h"
 #import "PassengerShared.h"
 
 @class PassengerController;
