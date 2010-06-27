@@ -164,7 +164,7 @@
 	{
 		[statusText setStringValue:@"Attempting to install Passenger Module..."];
 		NSLog(@"%@", [statusText stringValue]);
-		[self createPassengerSymLink];
+		[self installPassengerApacheMod];
 	}
 	
 	[fm release];
@@ -227,7 +227,7 @@
 
 -(void)installPassengerApacheMod
 {
-	[statusText setStringValue:@"Installing Passenger Apache Module...please wait!"];
+	[statusText setStringValue:@"Installing Passenger Module...please wait!"];
 	NSLog(@"%@", [statusText stringValue]);
 	
 	NSAlert *alert = [NSAlert alertWithMessageText:@"Warning!"
