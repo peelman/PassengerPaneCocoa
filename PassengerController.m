@@ -5,7 +5,11 @@
 //
 
 #import "PassengerController.h"
+
+#import "AdvancedHostsController.h"
+#import "PassengerApacheController.h"
 #import "PassengerApplication.h"
+#import "SecurityHelper.h"
 
 @implementation PassengerController
 

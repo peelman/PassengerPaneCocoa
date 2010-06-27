@@ -8,11 +8,9 @@
 #import <SecurityInterface/SFAuthorizationView.h>
 #import <OpenDirectory/OpenDirectory.h>
 
-#import "AdvancedHostsController.h"
-#import "PassengerApacheController.h"
-#import "PassengerApplication.h"
 #import "PassengerShared.h"
-#import "SecurityHelper.h"
+
+@class AdvancedHostsController;
 
 @interface PassengerController : NSObject 
 {
