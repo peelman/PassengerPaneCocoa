@@ -13,10 +13,10 @@
 #import "SecurityHelper.h"
 
 
-@interface PassengerController : NSObject {
-
+@interface PassengerController : NSObject 
+{
 	IBOutlet NSWindow *prefsWindow;
-	IBOutlet NSWindow *advancedPanel;
+	IBOutlet NSPanel *advancedView;
 	IBOutlet NSView *prefsView;
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
@@ -33,6 +33,9 @@
 	IBOutlet NSButton *helpButton;
 	IBOutlet NSButton *advancedButton;
 	IBOutlet NSButton *configureButton;
+	IBOutlet NSButton *advancedUpdatePassengerButton;
+	IBOutlet NSButton *advancedReLinkPassengerButton;
+	IBOutlet NSButton *advancedCloseButton;
 	
 	IBOutlet NSTextField *nameField;
 	IBOutlet NSTextField *addressField;
@@ -67,5 +70,6 @@
 -(IBAction)openFileBrowser:(id)sender;
 -(IBAction)openSite:(id)sender;
 -(IBAction)attemptConfiguration:(id)sender;
-
+-(IBAction)openAdvancedSheet:(id)sender;
+-(IBAction)closeAdvancedSheet:(id)sender;
 @end

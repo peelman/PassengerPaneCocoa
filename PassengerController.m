@@ -295,6 +295,18 @@
 		[PassengerApacheController restartApache:[[authView authorization] authorizationRef]];
 }
 
+
+-(IBAction)openAdvancedSheet:(id)sender
+{
+	[advancedView setFloatingPanel:NO];
+	[NSApp beginSheet:advancedView modalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(IBAction)closeAdvancedSheet:(id)sender
+{
+	[NSApp endSheet:advancedView];
+}
+
 #pragma mark -
 #pragma mark SFAuthorizationView Delegate Methods
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
@@ -322,6 +334,13 @@
 		[tableViewOverlay setHidden:NO];
 	else
 		[tableViewOverlay setHidden:YES];
+}
+
+#pragma mark -
+#pragma mark Modal Delegate Methods for Advanced Sheet
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    [sheet orderOut:self];
 }
 
 @end
