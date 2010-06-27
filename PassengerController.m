@@ -40,6 +40,8 @@
 	
 	if ([self isConfigured])
 		[self loadSites];
+	
+	[advancedHostsController loadAllHosts];
 }
 
 #pragma mark -
@@ -221,13 +223,6 @@
 	[[field window] makeFirstResponder:field];
 }
 
--(void)loadAllHosts
-{
-	SecurityHelper *sh = [SecurityHelper sharedInstance];
-	[sh setAuthorizationRef:[[authView authorization] authorizationRef]];
-	[sh executeCommand:BashLocation withArgs:nil];
-	
-}
 
 #pragma mark -
 #pragma mark IBActions
@@ -306,6 +301,7 @@
 
 -(IBAction)openAdvancedSheet:(id)sender
 {
+	[advancedHostsController loadAllHosts];
 	[advancedView setFloatingPanel:NO];
 	[NSApp beginSheet:advancedView modalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 }

@@ -6,12 +6,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <SecurityInterface/SFAuthorizationView.h>
+#import <OpenDirectory/OpenDirectory.h>
 
+#import "AdvancedHostsController.h"
 #import "PassengerApacheController.h"
 #import "PassengerApplication.h"
 #import "PassengerShared.h"
 #import "SecurityHelper.h"
-
 
 @interface PassengerController : NSObject 
 {
@@ -19,11 +20,10 @@
 	IBOutlet NSPanel *advancedView;
 	IBOutlet NSView *prefsView;
 	IBOutlet NSArrayController *sites;
-	IBOutlet NSArrayController *advancedHostsArray;
 	IBOutlet NSTableView *sitesTableView;
-	IBOutlet NSTableView *advancedHostsTableView;
 	IBOutlet SFAuthorizationView *authView;
-	IBOutlet NSImageView *statusImage;
+	
+	IBOutlet AdvancedHostsController *advancedHostsController;
 	
 	IBOutlet NSButton *startButton;
 	IBOutlet NSButton *stopButton;
@@ -46,7 +46,9 @@
 	IBOutlet NSTextField *folderField;
 	IBOutlet NSTextField *tableViewOverlay;
 	IBOutlet NSTextField *statusText;
-	
+
+	IBOutlet NSImageView *statusImage;
+
 	IBOutlet NSMatrix *modeMatrix;
 	
 	
