@@ -11,18 +11,17 @@
 @interface PassengerApplication : NSObject {
 	NSString *name, *address, *port, *path, *filename;
 	NSNumber *rakeMode;
-	BOOL appIsActive;
+	BOOL appIsActive, appHasChanges;
 	
 	AuthorizationRef authRef;
 	
 }
 @property (copy) NSString *name, *address, *port, *path, *filename;
 @property (copy) NSNumber *rakeMode;
-@property BOOL appIsActive;
+@property BOOL appIsActive, appHasChanges;
 @property AuthorizationRef authRef;
 
--(void)enableConfig;
--(void)disableConfig;
+-(void)toggleConfig;
 -(void)saveConfig;
 -(void)deleteConfig;
 

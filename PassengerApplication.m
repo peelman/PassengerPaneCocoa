@@ -11,7 +11,7 @@
 
 @implementation PassengerApplication
 
-@synthesize name, address, port, path, filename, rakeMode, appIsActive, authRef;
+@synthesize name, address, port, path, filename, rakeMode, appIsActive, appHasChanges, authRef;
 
 -(id)init
 {
@@ -19,36 +19,34 @@
 		return nil;
 
 	[self setAppIsActive:YES];
+	[self setAppHasChanges:YES];
 	[self setPort:@"80"];
 	[self setAuthRef:NULL];
 	
 	return self;
 }
 
--(void)enableConfig
+-(void)toggleConfig
 {
 	if (authRef == NULL)
 		return;
-	
-	if (appIsActive)
-		return;
-	
-	[HostsController createHost:address withAuthRef:authRef];
-	
-	[self setAppIsActive:YES];
-}
 
--(void)disableConfig
-{
-	if (authRef == NULL)
-		return;
+	NSLog(@"Toggling Config for %@ to %@", name, appIsActive ? @"Enabled" : @"Disabled");
 	
 	if (!appIsActive)
-		return;
-	
-	[HostsController removeHost:address withAuthRef:authRef];
+	{
+		NSLog(@"Disabling...");
+		[HostsController removeHost:address withAuthRef:authRef];
 
-	[self setAppIsActive:NO];
+		[self setAppIsActive:NO];
+		[self saveConfig];
+	} else {
+		NSLog(@"Enabling");
+		[HostsController createHost:address withAuthRef:authRef];
+		[self deleteConfig];
+		[self setAppIsActive:YES];
+		[self saveConfig];
+	}
 }
 
 #pragma mark -
@@ -56,6 +54,10 @@
 
 -(void)saveConfig
 {
+	if ([filename isEqualToString:@""])
+		return;
+	
+	[self deleteConfig];
 	NSString *extension = appIsActive ? ConfExtension : DisabledExtension;
 	[self setFilename:[NSString stringWithFormat:@"%@.%@",address,extension]];
 	NSString *tempDestination = [TempDir stringByAppendingPathComponent:filename];
@@ -68,7 +70,7 @@
 	[outputBuffer appendString:[NSString stringWithFormat:@"<VirtualHost %@:80>\r\n", address]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"ServerName %@\r\n", address]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@\r\n", path]];
-	[outputBuffer appendString:@"<Directory /somewhere/public>\r\n"];
+	[outputBuffer appendString:[NSString stringWithFormat:@"<Directory %@>\r\n", path]];
 	[outputBuffer appendString:@"\tAllowOverride all\r\n\tOptions -MultiViews\r\n"];
 	[outputBuffer appendString:@"\tOrder deny,allow\r\n\tAllow from all\r\n"];
 	[outputBuffer appendString:@"</Directory>\r\n</VirtualHost>\r\n"];
@@ -82,12 +84,19 @@
 	[sh setAuthorizationRef:authRef];
 	[sh executeCommand:MvLocation withArgs:args];
 	
+	[self setAppHasChanges:NO];
+	
 }
 
 -(void)deleteConfig
 {
-	[self disableConfig];
+	if ([filename isEqualToString:@""])
+		return;
 	
+	NSArray *args = [NSArray arrayWithObjects:[SitesConfDir stringByAppendingPathComponent:filename], nil];
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:authRef];
+	[sh executeCommand:RmLocation withArgs:args];
 }
 
 /*  Sample Config File

@@ -33,6 +33,7 @@
 
 -(void)awakeFromNib
 {
+	g_passengerController = self;
 	paneBundle = [NSBundle bundleWithIdentifier:PPCBundleID];
 	
 	[sitesTableView setAllowsMultipleSelection:YES];
@@ -274,22 +275,13 @@
 		if ([site authRef] == NULL)
 			[site setAuthRef:[self authRef]];
 		
-		[site saveConfig];
-	}
-	[self setHasChanges:YES];
-}
-
--(IBAction)toogleSiteEnabled:(id)sender
-{
-	for (PassengerApplication *site in [sites selectedObjects])
-	{	
-		if ([site authRef] == NULL)
-			[site setAuthRef:[self authRef]];
+		[[saveButton window] makeFirstResponder:saveButton];
 		
 		if ([site appIsActive])
-			[site disableConfig];
+			[HostsController createHost:[site address] withAuthRef:[self authRef]];
 		else
-			[site enableConfig];
+			[HostsController removeHost:[site address] withAuthRef:[self authRef]];
+
 		
 		[site saveConfig];
 	}
@@ -308,7 +300,6 @@
 	for (PassengerApplication *site in [sites selectedObjects])
 	{
 		// Delete Conf file
-		[site disableConfig];
 		[site deleteConfig];
 	}
 	
@@ -355,6 +346,11 @@
 	[NSApp endSheet:advancedView];
 }
 
+-(IBAction)controlDidChange:(id)sender
+{
+	[self controlTextDidChange:nil];
+}
+
 #pragma mark -
 #pragma mark SFAuthorizationView Delegate Methods
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
@@ -389,6 +385,12 @@
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     [sheet orderOut:self];
+}
+
+- (void)controlTextDidChange:(NSNotification *)aNotification
+{
+	for (PassengerApplication *pa in [sites selectedObjects])
+		[pa setAppHasChanges:YES];
 }
 
 @end

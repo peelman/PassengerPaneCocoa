@@ -46,6 +46,8 @@
 
 	IBOutlet NSImageView *statusImage;
 	IBOutlet NSImageView *hasChangesImage;
+	IBOutlet NSImageView *appHasChangesImage;
+
 	IBOutlet NSMatrix *modeMatrix;
 	
 	
@@ -79,4 +81,5 @@
 -(IBAction)restartApache:(id)sender;
 -(IBAction)openAdvancedSheet:(id)sender;
 -(IBAction)closeAdvancedSheet:(id)sender;
+-(IBAction)controlDidChange:(id)sender;
 @end
