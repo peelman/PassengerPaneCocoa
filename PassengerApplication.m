@@ -90,7 +90,7 @@
 
 -(void)deleteConfig
 {
-	if ([filename isEqualToString:@""])
+	if (filename == nil || [filename isEqualToString:@""])
 		return;
 	
 	NSArray *args = [NSArray arrayWithObjects:[SitesConfDir stringByAppendingPathComponent:filename], nil];
