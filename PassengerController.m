@@ -32,6 +32,8 @@
 
 -(void)awakeFromNib
 {
+	paneBundle = [NSBundle bundleWithIdentifier:PPCBundleID];
+	
 	[sitesTableView setAllowsMultipleSelection:YES];
 	[sites setSelectsInsertedObjects:YES];
 	
@@ -180,8 +182,7 @@
 	NSLog(@"%@", [statusText stringValue]);
 	
 	NSFileManager *fm = [[NSFileManager alloc] init];
-	NSBundle *b = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *confFilePath = [b pathForResource:PPCApacheConfigFile ofType:ConfExtension];
+	NSString *confFilePath = [paneBundle pathForResource:PPCApacheConfigFile ofType:ConfExtension];
 
 	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@",ApacheConfDir,PPCApacheConfigFile]])
 	{
@@ -207,8 +208,7 @@
 	[alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
 	[alert runModal];
 	
-	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *passengerInstaller = [bundle pathForResource:PPCInstallPassengerPackageName ofType:PkgExtension];
+	NSString *passengerInstaller = [paneBundle pathForResource:PPCInstallPassengerPackageName ofType:PkgExtension];
 
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", passengerInstaller, @"-target", @"/", nil];
 	
@@ -219,8 +219,7 @@
 	
 -(void)createPassengerSymLink
 {
-	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *passengerLinkScript = [bundle pathForResource:PPCCreateLinkScriptName ofType:ShellScriptExtension];
+	NSString *passengerLinkScript = [paneBundle pathForResource:PPCCreateLinkScriptName ofType:ShellScriptExtension];
 
 	NSArray *args = [NSArray arrayWithObjects:passengerLinkScript, nil];
 	
@@ -242,8 +241,7 @@
 	[alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
 	[alert runModal];
 	
-	NSBundle *bundle = [NSBundle bundleWithIdentifier:PPCBundleID];
-	NSString *modInstaller = [bundle pathForResource:PPCInstallPassengerApacheModPackageName ofType:PkgExtension];
+	NSString *modInstaller = [paneBundle pathForResource:PPCInstallPassengerApacheModPackageName ofType:PkgExtension];
 	
 	NSArray *args = [NSArray arrayWithObjects:@"-pkg", modInstaller, @"-target", @"/", nil];
 	
@@ -265,7 +263,7 @@
 
 #pragma mark -
 #pragma mark IBActions
--(IBAction)startApplications:(id)sender
+-(IBAction)loadApplication:(id)sender
 {
 	if (!isAuthorized)
 		return;
@@ -279,7 +277,7 @@
 	}
 }
 
--(IBAction)stopApplications:(id)sender
+-(IBAction)unloadApplication:(id)sender
 {
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
@@ -290,7 +288,7 @@
 	}
 }
 
--(IBAction)restartApplications:(id)sender
+-(IBAction)reloadApplication:(id)sender
 {
 	for (PassengerApplication *site in [sites selectedObjects])
 		[site restartApplication];

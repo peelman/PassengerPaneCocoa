@@ -46,11 +46,12 @@
 	IBOutlet NSTextField *statusText;
 
 	IBOutlet NSImageView *statusImage;
-
+	IBOutlet NSImageView *hasChangesImage;
 	IBOutlet NSMatrix *modeMatrix;
 	
 	
 	BOOL isAuthorized, hasSites, hasChanges, isConfigured;
+	NSBundle *paneBundle;
 	
 }
 @property (retain) NSArrayController *sites;
@@ -68,9 +69,9 @@
 -(AuthorizationRef)authRef;
 -(void)selectNameField:(NSTextField *)field;
 
--(IBAction)startApplications:(id)sender;
--(IBAction)stopApplications:(id)sender;
--(IBAction)restartApplications:(id)sender;
+-(IBAction)loadApplication:(id)sender;
+-(IBAction)unloadApplication:(id)sender;
+-(IBAction)reloadApplication:(id)sender;
 
 -(IBAction)addSite:(id)sender;
 -(IBAction)removeSite:(id)sender;
