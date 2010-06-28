@@ -45,7 +45,7 @@
 	[authView setAutoupdate:YES];
 	
 	[hasChangesImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
-
+	[appHasChangesImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 	
 	[self checkConfiguration];
 	
