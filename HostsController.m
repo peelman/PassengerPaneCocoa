@@ -6,6 +6,8 @@
 
 #import "HostsController.h"
 
+#import "PassengerApplication.h"
+#import "PassengerController.h"
 #import "SecurityHelper.h"
 
 @implementation HostsController
@@ -32,6 +34,15 @@
 	if (authRef == NULL)
 		return;
 	
+	int numberInUse = 0;
+	
+	for (PassengerApplication *site in [[g_passengerController sites] arrangedObjects])
+		if ([[site address] isEqualTo:hostName])
+			numberInUse++;
+	
+	if (numberInUse > 1)
+		return;
+
 	NSString *dsclPath = [NSString stringWithFormat:@"/Local/Default/Hosts/%@",hostName];
 	NSArray *args = [NSArray arrayWithObjects:@"localhost", @"-delete", dsclPath, nil];
 	
