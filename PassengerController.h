@@ -71,8 +71,6 @@
 -(void)selectNameField:(NSTextField *)field;
 
 -(IBAction)saveSite:(id)sender;
--(IBAction)toogleSiteEnabled:(id)sender;
-
 -(IBAction)addSite:(id)sender;
 -(IBAction)removeSite:(id)sender;
 -(IBAction)openFileBrowser:(id)sender;
