@@ -23,9 +23,8 @@
 	
 	IBOutlet AdvancedHostsController *advancedHostsController;
 	
-	IBOutlet NSButton *startButton;
-	IBOutlet NSButton *stopButton;
-	IBOutlet NSButton *restartButton;
+	IBOutlet NSButton *saveButton;
+	IBOutlet NSButton *enableButton;
 	IBOutlet NSButton *browseButton;
 	IBOutlet NSButton *openSiteButton;
 	IBOutlet NSButton *addSiteButton;
@@ -69,9 +68,8 @@
 -(AuthorizationRef)authRef;
 -(void)selectNameField:(NSTextField *)field;
 
--(IBAction)loadApplication:(id)sender;
--(IBAction)unloadApplication:(id)sender;
--(IBAction)reloadApplication:(id)sender;
+-(IBAction)saveSite:(id)sender;
+-(IBAction)toogleSiteEnabled:(id)sender;
 
 -(IBAction)addSite:(id)sender;
 -(IBAction)removeSite:(id)sender;

@@ -7,6 +7,7 @@
 #import "PassengerController.h"
 
 #import "AdvancedHostsController.h"
+#import "HostsController.h"
 #import "PassengerApacheController.h"
 #import "PassengerApplication.h"
 #import "SecurityHelper.h"
@@ -41,6 +42,9 @@
 	[authView setDelegate:self];
     [authView updateStatus:authView];
 	[authView setAutoupdate:YES];
+	
+	[hasChangesImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
+
 	
 	[self checkConfiguration];
 	
@@ -263,55 +267,53 @@
 
 #pragma mark -
 #pragma mark IBActions
--(IBAction)loadApplication:(id)sender
-{
-	if (!isAuthorized)
-		return;
-	
+-(IBAction)saveSite:(id)sender
+{	
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
 		if ([site authRef] == NULL)
 			[site setAuthRef:[self authRef]];
 		
-		[site startApplication];
+		[site saveConfig];
 	}
+	[self setHasChanges:YES];
 }
 
--(IBAction)unloadApplication:(id)sender
+-(IBAction)toogleSiteEnabled:(id)sender
 {
 	for (PassengerApplication *site in [sites selectedObjects])
 	{	
 		if ([site authRef] == NULL)
 			[site setAuthRef:[self authRef]];
 		
-		[site stopApplication];
+		if ([site appIsActive])
+			[site disableConfig];
+		else
+			[site enableConfig];
+		
+		[site saveConfig];
 	}
-}
-
--(IBAction)reloadApplication:(id)sender
-{
-	for (PassengerApplication *site in [sites selectedObjects])
-		[site restartApplication];
+	[self setHasChanges:YES];
 }
 
 -(IBAction)addSite:(id)sender
 {
 	[sites add:sender];
 	[self performSelector:@selector(selectNameField:) withObject:nameField afterDelay:0.25];
+	[self setHasChanges:YES];
 }
 
 -(IBAction)removeSite:(id)sender
 {
 	for (PassengerApplication *site in [sites selectedObjects])
-	{	
-		if ([site appIsRunning])
-			[site stopApplication];
-		
-		// Remove Host entry
+	{
 		// Delete Conf file
+		[site disableConfig];
+		[site deleteConfig];
 	}
 	
 	[sites remove:sender];
+	[self setHasChanges:YES];
 }
 
 -(IBAction)openFileBrowser:(id)sender
@@ -338,6 +340,7 @@
 -(IBAction)restartApache:(id)sender
 {
 	[PassengerApacheController restartApache:[self authRef]];
+	[self setHasChanges:NO];
 }
 
 -(IBAction)openAdvancedSheet:(id)sender

@@ -30,6 +30,7 @@ NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passeng
 #pragma mark System Constants
 NSString * const BashLocation = @"/bin/bash";
 NSString * const CpLocation = @"/bin/cp";
+NSString * const MvLocation = @"/bin/mv";
 NSString * const MkdirLocation = @"/bin/mkdir";
 NSString * const InstallerLocation = @"/usr/sbin/installer";
 
@@ -38,6 +39,7 @@ NSString * const InstallerLocation = @"/usr/sbin/installer";
 NSString * const PPCBundleID = @"us.peelman.PassengerPaneCocoa";
 NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";
 NSString * const SitesConfDir = @"/private/etc/apache2/other/passengerpanecocoa-sites/";
+NSString * const TempDir =  @"/private/tmp/";
 NSString * const PPCCreateLinkScriptName = @"passenger-create-link";
 NSString * const PPCInstallPassengerPackageName = @"install-passenger";
 NSString * const PPCInstallPassengerApacheModPackageName = @"install-passenger-apache-mod";

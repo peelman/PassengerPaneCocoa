@@ -9,22 +9,21 @@
 #import "PassengerShared.h"
 
 @interface PassengerApplication : NSObject {
-	NSString *name, *address, *port, *path;
-	NSArrayController *aliases;
+	NSString *name, *address, *port, *path, *filename;
 	NSNumber *rakeMode;
-	BOOL appIsRunning;
+	BOOL appIsActive;
 	
 	AuthorizationRef authRef;
 	
 }
-@property (copy) NSString *name, *address, *port, *path;
-@property (retain) NSArrayController *aliases;
+@property (copy) NSString *name, *address, *port, *path, *filename;
 @property (copy) NSNumber *rakeMode;
-@property BOOL appIsRunning;
+@property BOOL appIsActive;
 @property AuthorizationRef authRef;
 
--(void)startApplication;
--(void)stopApplication;
--(void)restartApplication;
+-(void)enableConfig;
+-(void)disableConfig;
+-(void)saveConfig;
+-(void)deleteConfig;
 
 @end

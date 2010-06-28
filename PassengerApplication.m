@@ -11,56 +11,84 @@
 
 @implementation PassengerApplication
 
-@synthesize name, address, port, path, aliases, rakeMode, appIsRunning, authRef;
-
+@synthesize name, address, port, path, filename, rakeMode, appIsActive, authRef;
 
 -(id)init
 {
 	if (![super init])
 		return nil;
 
-	[self setAppIsRunning:NO];
+	[self setAppIsActive:YES];
 	[self setPort:@"80"];
 	[self setAuthRef:NULL];
 	
 	return self;
 }
 
--(void)startApplication
+-(void)enableConfig
 {
-	NSLog(@"Starting Site %@", [self name]);
 	if (authRef == NULL)
 		return;
 	
-	if (appIsRunning)
+	if (appIsActive)
 		return;
 	
 	[HostsController createHost:address withAuthRef:authRef];
-	[self setAppIsRunning:YES];
+	
+	[self setAppIsActive:YES];
 }
 
--(void)stopApplication
+-(void)disableConfig
 {
-	NSLog(@"Stopping Site: %@",[self name]);
-	
 	if (authRef == NULL)
 		return;
 	
-	if (!appIsRunning)
+	if (!appIsActive)
 		return;
 	
 	[HostsController removeHost:address withAuthRef:authRef];
 
-	[self setAppIsRunning:NO];
-}
-
--(void)restartApplication
-{
-	[self setAppIsRunning:YES];	
+	[self setAppIsActive:NO];
 }
 
 #pragma mark -
 #pragma mark File Operations
+
+-(void)saveConfig
+{
+	NSString *extension = appIsActive ? ConfExtension : DisabledExtension;
+	[self setFilename:[NSString stringWithFormat:@"%@.%@",address,extension]];
+	NSString *tempDestination = [TempDir stringByAppendingPathComponent:filename];
+	NSString *finalDestination = [SitesConfDir stringByAppendingPathComponent:filename];
+	
+	NSLog(@"Attempting to save %@ to filename: %@", name, filename);
+	NSMutableString *outputBuffer = [[NSMutableString alloc] init];
+	
+	[outputBuffer appendString:[NSString stringWithFormat:@"#PassengerPane SiteName %@\r\n", name]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"<VirtualHost %@:80>\r\n", address]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"ServerName %@\r\n", address]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@\r\n", path]];
+	[outputBuffer appendString:@"<Directory /somewhere/public>\r\n"];
+	[outputBuffer appendString:@"\tAllowOverride all\r\n\tOptions -MultiViews\r\n"];
+	[outputBuffer appendString:@"\tOrder deny,allow\r\n\tAllow from all\r\n"];
+	[outputBuffer appendString:@"</Directory>\r\n</VirtualHost>\r\n"];
+	
+	[outputBuffer writeToFile:tempDestination atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+
+	[outputBuffer release];
+	
+	NSArray *args = [NSArray arrayWithObjects:tempDestination, finalDestination, nil];
+	SecurityHelper *sh = [SecurityHelper sharedInstance];
+	[sh setAuthorizationRef:authRef];
+	[sh executeCommand:MvLocation withArgs:args];
+	
+}
+
+-(void)deleteConfig
+{
+	[self disableConfig];
+	
+}
 
 /*  Sample Config File
  #PassengerPane SiteName [sitenamehere]

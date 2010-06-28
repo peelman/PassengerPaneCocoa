@@ -32,6 +32,7 @@ extern NSString * const PassengerModuleLocation;
 #pragma mark System Constants
 extern NSString * const BashLocation;
 extern NSString * const CpLocation;
+extern NSString * const MvLocation;
 extern NSString * const MkdirLocation;
 extern NSString * const InstallerLocation;
 
@@ -40,6 +41,7 @@ extern NSString * const InstallerLocation;
 extern NSString * const PPCBundleID;
 extern NSString * const PPCApacheConfigFile;
 extern NSString * const SitesConfDir;
+extern NSString * const TempDir;
 extern NSString * const PPCCreateLinkScriptName;
 extern NSString * const PPCInstallPassengerPackageName;
 extern NSString * const PPCInstallPassengerApacheModPackageName;
