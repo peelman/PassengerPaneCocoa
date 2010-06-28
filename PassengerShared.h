@@ -7,6 +7,8 @@
 #import <Cocoa/Cocoa.h>
 #import <SecurityFoundation/SFAuthorization.h>
 
+@class PassengerController;
+
 @interface PassengerShared : NSObject {
 
 }
@@ -33,11 +35,13 @@ extern NSString * const PassengerModuleLocation;
 extern NSString * const BashLocation;
 extern NSString * const CpLocation;
 extern NSString * const MvLocation;
+extern NSString * const RmLocation;
 extern NSString * const MkdirLocation;
 extern NSString * const InstallerLocation;
 
 #pragma mark -
 #pragma mark PassengerPaneCocoa Constants
+extern PassengerController * g_passengerController;
 extern NSString * const PPCBundleID;
 extern NSString * const PPCApacheConfigFile;
 extern NSString * const SitesConfDir;

@@ -31,11 +31,15 @@ NSString * const PassengerModuleLocation = @"/Library/Ruby/Gems/1.8/gems/passeng
 NSString * const BashLocation = @"/bin/bash";
 NSString * const CpLocation = @"/bin/cp";
 NSString * const MvLocation = @"/bin/mv";
+NSString * const RmLocation = @"/bin/rm";
 NSString * const MkdirLocation = @"/bin/mkdir";
 NSString * const InstallerLocation = @"/usr/sbin/installer";
 
 #pragma mark -
 #pragma mark PassengerPaneCocoa Constants
+
+PassengerController *g_passengerController;
+
 NSString * const PPCBundleID = @"us.peelman.PassengerPaneCocoa";
 NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";
 NSString * const SitesConfDir = @"/private/etc/apache2/other/passengerpanecocoa-sites/";
