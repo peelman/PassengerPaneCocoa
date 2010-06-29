@@ -21,7 +21,6 @@
 @property BOOL appIsActive, appHasChanges;
 @property AuthorizationRef authRef;
 
--(void)toggleConfig;
 -(void)saveConfig;
 -(void)deleteConfig;
 

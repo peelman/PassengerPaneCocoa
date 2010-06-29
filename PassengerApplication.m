@@ -26,29 +26,6 @@
 	return self;
 }
 
--(void)toggleConfig
-{
-	if (authRef == NULL)
-		return;
-
-	NSLog(@"Toggling Config for %@ to %@", name, appIsActive ? @"Enabled" : @"Disabled");
-	
-	if (!appIsActive)
-	{
-		NSLog(@"Disabling...");
-		[HostsController removeHost:address withAuthRef:authRef];
-
-		[self setAppIsActive:NO];
-		[self saveConfig];
-	} else {
-		NSLog(@"Enabling");
-		[HostsController createHost:address withAuthRef:authRef];
-		[self deleteConfig];
-		[self setAppIsActive:YES];
-		[self saveConfig];
-	}
-}
-
 #pragma mark -
 #pragma mark File Operations
 
@@ -92,7 +69,7 @@
 {
 	if (filename == nil || [filename isEqualToString:@""])
 		return;
-	
+
 	NSArray *args = [NSArray arrayWithObjects:[SitesConfDir stringByAppendingPathComponent:filename], nil];
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:authRef];
