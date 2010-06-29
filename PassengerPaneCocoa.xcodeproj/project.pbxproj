@@ -38,6 +38,8 @@
 		99FEE79E11D6E41F003C59B8 /* AdvancedHostsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEE79C11D6E41F003C59B8 /* AdvancedHostsController.m */; };
 		99FEE82211D7BD29003C59B8 /* HostsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99FEE82011D7BD29003C59B8 /* HostsController.h */; };
 		99FEE82311D7BD29003C59B8 /* HostsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEE82111D7BD29003C59B8 /* HostsController.m */; };
+		99FEEB1711D98026003C59B8 /* AdvancedSheetController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99FEEB1511D98026003C59B8 /* AdvancedSheetController.h */; };
+		99FEEB1811D98026003C59B8 /* AdvancedSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEEB1611D98026003C59B8 /* AdvancedSheetController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		99FEE79C11D6E41F003C59B8 /* AdvancedHostsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedHostsController.m; sourceTree = "<group>"; };
 		99FEE82011D7BD29003C59B8 /* HostsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostsController.h; sourceTree = "<group>"; };
 		99FEE82111D7BD29003C59B8 /* HostsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostsController.m; sourceTree = "<group>"; };
+		99FEEB1511D98026003C59B8 /* AdvancedSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSheetController.h; sourceTree = "<group>"; };
+		99FEEB1611D98026003C59B8 /* AdvancedSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSheetController.m; sourceTree = "<group>"; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* PassengerPaneCocoaPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerPaneCocoaPref.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* PassengerPaneCocoaPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerPaneCocoaPref.m; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				99FEEB1511D98026003C59B8 /* AdvancedSheetController.h */,
+				99FEEB1611D98026003C59B8 /* AdvancedSheetController.m */,
 				99FEE82011D7BD29003C59B8 /* HostsController.h */,
 				99FEE82111D7BD29003C59B8 /* HostsController.m */,
 				99FEE79B11D6E41F003C59B8 /* AdvancedHostsController.h */,
@@ -207,6 +213,7 @@
 				990CB51A11D54A4500B21EE0 /* PassengerShared.h in Headers */,
 				99FEE79D11D6E41F003C59B8 /* AdvancedHostsController.h in Headers */,
 				99FEE82211D7BD29003C59B8 /* HostsController.h in Headers */,
+				99FEEB1711D98026003C59B8 /* AdvancedSheetController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +300,7 @@
 				990CB51B11D54A4500B21EE0 /* PassengerShared.m in Sources */,
 				99FEE79E11D6E41F003C59B8 /* AdvancedHostsController.m in Sources */,
 				99FEE82311D7BD29003C59B8 /* HostsController.m in Sources */,
+				99FEEB1811D98026003C59B8 /* AdvancedSheetController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,18 +10,15 @@
 
 #import "PassengerShared.h"
 
-@class AdvancedHostsController;
+@class AdvancedSheetController;
 
 @interface PassengerController : NSObject 
 {
 	IBOutlet NSWindow *prefsWindow;
-	IBOutlet NSPanel *advancedView;
 	IBOutlet NSView *prefsView;
 	IBOutlet NSArrayController *sites;
 	IBOutlet NSTableView *sitesTableView;
 	IBOutlet SFAuthorizationView *authView;
-	
-	IBOutlet AdvancedHostsController *advancedHostsController;
 	
 	IBOutlet NSButton *saveButton;
 	IBOutlet NSButton *enableButton;
@@ -32,10 +29,6 @@
 	IBOutlet NSButton *helpButton;
 	IBOutlet NSButton *advancedButton;
 	IBOutlet NSButton *configureButton;
-	IBOutlet NSButton *advancedUpdatePassengerButton;
-	IBOutlet NSButton *advancedReLinkPassengerButton;
-	IBOutlet NSButton *advancedCloseButton;
-	IBOutlet NSButton *advancedHostsRemoveButton;
 	
 	IBOutlet NSTextField *nameField;
 	IBOutlet NSTextField *addressField;
@@ -50,6 +43,7 @@
 
 	IBOutlet NSMatrix *modeMatrix;
 	
+	IBOutlet AdvancedSheetController *advancedController;
 	
 	BOOL isAuthorized, hasSites, hasChanges, isConfigured;
 	NSBundle *paneBundle;

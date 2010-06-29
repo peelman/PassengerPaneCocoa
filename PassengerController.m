@@ -6,6 +6,7 @@
 
 #import "PassengerController.h"
 
+#import "AdvancedSheetController.h"
 #import "AdvancedHostsController.h"
 #import "HostsController.h"
 #import "PassengerApacheController.h"
@@ -51,8 +52,6 @@
 	
 	if ([self isConfigured])
 		[self loadSites];
-	
-	[advancedHostsController loadAllHosts];
 }
 
 #pragma mark -
@@ -336,14 +335,13 @@
 
 -(IBAction)openAdvancedSheet:(id)sender
 {
-	[advancedHostsController loadAllHosts];
-	[advancedView setFloatingPanel:NO];
-	[NSApp beginSheet:advancedView modalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+	[[advancedController advancedHostsController] loadAllHosts];
+	[NSApp beginSheet:[advancedController advancedPanel] modalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 }
 
 -(IBAction)closeAdvancedSheet:(id)sender
 {
-	[NSApp endSheet:advancedView];
+	[NSApp endSheet:[advancedController advancedPanel]];
 }
 
 -(IBAction)controlDidChange:(id)sender
