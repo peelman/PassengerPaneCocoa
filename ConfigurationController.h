@@ -23,7 +23,9 @@
 	IBOutlet NSButton *passengerLinkedCheckbox;
 	IBOutlet NSButton *passengerApacheModCheckbox;
 	IBOutlet NSButton *passengerApacheConfigCheckbox;
-		
+
+	NSFileManager *fm;
+	
 	NSString *sitesPath, *rubyPath, *passengerPath, *apacheModPath, *apacheConfigPath;
 	
 	BOOL sitesPathFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;

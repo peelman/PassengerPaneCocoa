@@ -58,5 +58,6 @@ extern NSString * const DisabledExtension;
 extern NSString * const ShellScriptExtension;
 extern NSString * const PkgExtension;
 
++(NSString *)runTask:(NSString *)executable withArgs:(NSArray *)args;
 
 @end

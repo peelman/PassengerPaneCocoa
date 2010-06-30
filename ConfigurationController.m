@@ -13,10 +13,20 @@
 @synthesize configPanel, sitesPathFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
 @synthesize sitesPath, rubyPath, passengerPath, apacheModPath, apacheConfigPath;
 
+-(id)init
+{
+	if (![super init])
+		return nil;
+	
+	fm = [NSFileManager defaultManager];
+	
+	[self setSitesPathFound:NO];
+	
+	return self;
+}
+
 -(BOOL)checkSitesDirectoryConfig
 {
-	NSFileManager *fm = [NSFileManager defaultManager];
-	
 	BOOL isDir = NO;
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
 	{
@@ -24,19 +34,36 @@
 		NSLog(@"%@",[statusText stringValue]);
 		return NO;
 	}
-	[self setSitesPath:[SitesConfDir stringByDeletingLastPathComponent]];
+	[self setSitesPath:SitesConfDir];
 	[self setSitesPathFound:YES];;
 	return YES;
 }
 
 -(BOOL)checkRubyConfig
 {
-	return NO;
+	if (![fm fileExistsAtPath:RubyLocation])
+	{
+		[statusText setStringValue:@"Ruby Not Found"];
+		NSLog(@"%@",[statusText stringValue]);
+		return NO;
+	}
+	
+	[self setRubyPath:RubyLocation];
+	[self setRubyFound:YES];
+	return YES;
 }
 
 -(BOOL)checkPassengerConfig
 {
-	return NO;	
+	if (![fm fileExistsAtPath:PassengerConfigTool])
+	{
+		[statusText setStringValue:@"Passenger Not Found"];
+		NSLog(@"%@",[statusText stringValue]);
+		return NO;
+	}
+	[self setPassengerPath:[PassengerShared runTask:PassengerConfigTool withArgs:[NSArray arrayWithObjects:@"--root",nil]]];
+	[self setPassengerFound:YES];
+	return YES;
 }
 
 -(BOOL)checkPassengerLinked
@@ -56,7 +83,6 @@
 
 -(void)checkConfiguration
 {
-	NSFileManager *fm = [NSFileManager defaultManager];
 	BOOL isDir = NO;
 	
 	// Locate Config Dir
@@ -64,20 +90,12 @@
 		return;
 	
 	// Locate Ruby
-	if (![fm fileExistsAtPath:RubyLocation])
-	{
-		[statusText setStringValue:@"Ruby Not Found"];
-		NSLog(@"%@",[statusText stringValue]);
+	if (![self checkRubyConfig])
 		return;
-	}
 	
 	// Locate Passenger
-	if (![fm fileExistsAtPath:PassengerConfigTool])
-	{
-		[statusText setStringValue:@"Passenger Not Found"];
-		NSLog(@"%@",[statusText stringValue]);
+	if (![self checkPassengerConfig])
 		return;
-	}
 	
 	// Locate Passsenger Link
 	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
@@ -111,7 +129,6 @@
 {
 	[statusText setStringValue:@"Configuring Apache Sites..."];
 	NSLog(@"%@", [statusText stringValue]);
-	NSFileManager *fm = [[NSFileManager alloc] init];
 	BOOL isDir = NO;	
 	
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
@@ -130,7 +147,6 @@
 {
 	[statusText setStringValue:@"Configuring Passenger..."];
 	NSLog(@"%@", [statusText stringValue]);	
-	NSFileManager *fm = [[NSFileManager alloc] init];
 	
 	if (![fm fileExistsAtPath:PassengerConfigTool]) 
 	{
@@ -162,7 +178,6 @@
 	[statusText setStringValue:@"Configuring Apache..."];
 	NSLog(@"%@", [statusText stringValue]);
 	
-	NSFileManager *fm = [[NSFileManager alloc] init];
 	NSString *confFilePath = [paneBundle pathForResource:PPCApacheConfigFile ofType:ConfExtension];
 	
 	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@",ApacheConfDir,PPCApacheConfigFile]])

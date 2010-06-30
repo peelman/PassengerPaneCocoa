@@ -55,4 +55,21 @@ NSString * const DisabledExtension = @"disabled";
 NSString * const ShellScriptExtension = @"sh";
 NSString * const PkgExtension = @"pkg";
 
++(NSString *)runTask:(NSString *)executable withArgs:(NSArray *)args
+{
+	NSTask *task = [[NSTask alloc] init];
+    NSPipe *pipe = [NSPipe pipe];
+    NSFileHandle *file = [pipe fileHandleForReading];
+	
+    [task setLaunchPath: executable];
+	[task setArguments: args];
+	[task setStandardOutput: pipe];
+	[task launch];
+    [task waitUntilExit];
+	
+	NSData *data = [file readDataToEndOfFile];
+    NSString *taskOutput = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	return taskOutput;
+}
+
 @end

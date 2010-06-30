@@ -16,19 +16,10 @@
 	// Needs Lots of work...
 	[hostsArray removeObjects:[hostsArray arrangedObjects]];
 	
-	NSTask *task = [[NSTask alloc] init];
+    NSString *dscl = @"/usr/bin/dscl";
     NSArray *arguments = [NSArray arrayWithObjects: @"localhost", @"-list", @"/Local/Default/Hosts", nil];
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *file = [pipe fileHandleForReading];
-	
-    [task setLaunchPath: @"/usr/bin/dscl"];
-	[task setArguments: arguments];
-	[task setStandardOutput: pipe];
-	[task launch];
-    [task waitUntilExit];
 
-	NSData *data = [file readDataToEndOfFile];
-    NSString *hostsReturn = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *hostsReturn = [PassengerShared runTask:dscl withArgs:arguments];
 
 	NSLog(@"%@",hostsReturn);
 	NSMutableArray *allHosts = [[NSMutableArray alloc] init];
