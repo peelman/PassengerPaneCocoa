@@ -8,6 +8,7 @@
 
 #import "AdvancedSheetController.h"
 #import "AdvancedHostsController.h"
+#import "ConfigurationController.h"
 #import "HostsController.h"
 #import "PassengerApacheController.h"
 #import "PassengerApplication.h"

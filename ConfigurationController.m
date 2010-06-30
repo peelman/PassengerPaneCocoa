@@ -9,6 +9,6 @@
 
 @implementation ConfigurationController
 
-@synthesize advancedPanel;
+@synthesize configPanel;
 
 @end

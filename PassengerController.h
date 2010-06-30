@@ -11,6 +11,7 @@
 #import "PassengerShared.h"
 
 @class AdvancedSheetController;
+@class ConfigurationController;
 
 @interface PassengerController : NSObject 
 {
