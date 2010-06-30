@@ -44,6 +44,7 @@
 	IBOutlet NSMatrix *modeMatrix;
 	
 	IBOutlet AdvancedSheetController *advancedController;
+	IBOutlet ConfigurationController *configController;
 	
 	BOOL isAuthorized, hasSites, hasChanges, isConfigured;
 	NSBundle *paneBundle;
@@ -73,5 +74,7 @@
 -(IBAction)restartApache:(id)sender;
 -(IBAction)openAdvancedSheet:(id)sender;
 -(IBAction)closeAdvancedSheet:(id)sender;
+-(IBAction)openConfigurationSheet:(id)sender;
+-(IBAction)closeConfigurationSheet:(id)sender;
 -(IBAction)controlDidChange:(id)sender;
 @end

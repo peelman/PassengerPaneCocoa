@@ -332,6 +332,15 @@
 	[PassengerApacheController restartApache:[self authRef]];
 	[self setHasChanges:NO];
 }
+-(IBAction)openConfigurationSheet:(id)sender
+{
+	[NSApp beginSheet:[configController configPanel] modalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(IBAction)closeConfigurationSheet:(id)sender
+{
+	[NSApp endSheet:[configController configPanel]];
+}
 
 -(IBAction)openAdvancedSheet:(id)sender
 {

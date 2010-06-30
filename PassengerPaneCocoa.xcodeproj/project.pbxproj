@@ -33,6 +33,8 @@
 		990CB51B11D54A4500B21EE0 /* PassengerShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB51911D54A4500B21EE0 /* PassengerShared.m */; };
 		9926F23E11D5C24900ED3BB4 /* install-passenger.pkg in Resources */ = {isa = PBXBuildFile; fileRef = 9926F23D11D5C24900ED3BB4 /* install-passenger.pkg */; };
 		9926F2CA11D6FAEA00ED3BB4 /* install-passenger-apache-mod.pkg in Resources */ = {isa = PBXBuildFile; fileRef = 9926F2C911D6FAEA00ED3BB4 /* install-passenger-apache-mod.pkg */; };
+		99CEAC8311DAD1A3000EE6BC /* ConfigurationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99CEAC8111DAD1A3000EE6BC /* ConfigurationController.h */; };
+		99CEAC8411DAD1A3000EE6BC /* ConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEAC8211DAD1A3000EE6BC /* ConfigurationController.m */; };
 		99FEE60511D6B23D003C59B8 /* passenger-create-link.sh in Resources */ = {isa = PBXBuildFile; fileRef = 99FEE60411D6B23D003C59B8 /* passenger-create-link.sh */; };
 		99FEE79D11D6E41F003C59B8 /* AdvancedHostsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99FEE79B11D6E41F003C59B8 /* AdvancedHostsController.h */; };
 		99FEE79E11D6E41F003C59B8 /* AdvancedHostsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEE79C11D6E41F003C59B8 /* AdvancedHostsController.m */; };
@@ -68,6 +70,8 @@
 		990CB51911D54A4500B21EE0 /* PassengerShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassengerShared.m; sourceTree = "<group>"; };
 		9926F23D11D5C24900ED3BB4 /* install-passenger.pkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-pkg"; path = "install-passenger.pkg"; sourceTree = "<group>"; };
 		9926F2C911D6FAEA00ED3BB4 /* install-passenger-apache-mod.pkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-pkg"; path = "install-passenger-apache-mod.pkg"; sourceTree = "<group>"; };
+		99CEAC8111DAD1A3000EE6BC /* ConfigurationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationController.h; sourceTree = "<group>"; };
+		99CEAC8211DAD1A3000EE6BC /* ConfigurationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationController.m; sourceTree = "<group>"; };
 		99FEE60411D6B23D003C59B8 /* passenger-create-link.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "passenger-create-link.sh"; sourceTree = "<group>"; };
 		99FEE79B11D6E41F003C59B8 /* AdvancedHostsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedHostsController.h; sourceTree = "<group>"; };
 		99FEE79C11D6E41F003C59B8 /* AdvancedHostsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedHostsController.m; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 				3EEF425811D410EE005FBAF1 /* OpenDirectory.framework */,
 				990BC5D511D43B8900CD37C0 /* Security.framework */,
+				99CEAC8111DAD1A3000EE6BC /* ConfigurationController.h */,
+				99CEAC8211DAD1A3000EE6BC /* ConfigurationController.m */,
 			);
 			name = PassengerPaneCocoa;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				99FEE79D11D6E41F003C59B8 /* AdvancedHostsController.h in Headers */,
 				99FEE82211D7BD29003C59B8 /* HostsController.h in Headers */,
 				99FEEB1711D98026003C59B8 /* AdvancedSheetController.h in Headers */,
+				99CEAC8311DAD1A3000EE6BC /* ConfigurationController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +308,7 @@
 				99FEE79E11D6E41F003C59B8 /* AdvancedHostsController.m in Sources */,
 				99FEE82311D7BD29003C59B8 /* HostsController.m in Sources */,
 				99FEEB1811D98026003C59B8 /* AdvancedSheetController.m in Sources */,
+				99CEAC8411DAD1A3000EE6BC /* ConfigurationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
