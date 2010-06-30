@@ -111,8 +111,6 @@
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 				3EEF425811D410EE005FBAF1 /* OpenDirectory.framework */,
 				990BC5D511D43B8900CD37C0 /* Security.framework */,
-				99CEAC8111DAD1A3000EE6BC /* ConfigurationController.h */,
-				99CEAC8211DAD1A3000EE6BC /* ConfigurationController.m */,
 			);
 			name = PassengerPaneCocoa;
 			sourceTree = "<group>";
@@ -147,22 +145,24 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				99FEEB1511D98026003C59B8 /* AdvancedSheetController.h */,
-				99FEEB1611D98026003C59B8 /* AdvancedSheetController.m */,
-				99FEE82011D7BD29003C59B8 /* HostsController.h */,
-				99FEE82111D7BD29003C59B8 /* HostsController.m */,
 				99FEE79B11D6E41F003C59B8 /* AdvancedHostsController.h */,
 				99FEE79C11D6E41F003C59B8 /* AdvancedHostsController.m */,
-				990CB51811D54A4500B21EE0 /* PassengerShared.h */,
-				990CB51911D54A4500B21EE0 /* PassengerShared.m */,
+				99FEEB1511D98026003C59B8 /* AdvancedSheetController.h */,
+				99FEEB1611D98026003C59B8 /* AdvancedSheetController.m */,
+				99CEAC8111DAD1A3000EE6BC /* ConfigurationController.h */,
+				99CEAC8211DAD1A3000EE6BC /* ConfigurationController.m */,
+				99FEE82011D7BD29003C59B8 /* HostsController.h */,
+				99FEE82111D7BD29003C59B8 /* HostsController.m */,
 				990CB4FE11D544BD00B21EE0 /* PassengerApacheController.h */,
 				990CB4FF11D544BD00B21EE0 /* PassengerApacheController.m */,
-				990CB30B11D30EA400B21EE0 /* PassengerController.h */,
-				990CB30C11D30EA400B21EE0 /* PassengerController.m */,
 				990CB31211D30F1900B21EE0 /* PassengerApplication.h */,
 				990CB31311D30F1900B21EE0 /* PassengerApplication.m */,
+				990CB30B11D30EA400B21EE0 /* PassengerController.h */,
+				990CB30C11D30EA400B21EE0 /* PassengerController.m */,
 				F506C03C013D9D7901CA16C8 /* PassengerPaneCocoaPref.h */,
 				F506C03D013D9D7901CA16C8 /* PassengerPaneCocoaPref.m */,
+				990CB51811D54A4500B21EE0 /* PassengerShared.h */,
+				990CB51911D54A4500B21EE0 /* PassengerShared.m */,
 				990CB36311D316AF00B21EE0 /* SecurityHelper.h */,
 				990CB36411D316AF00B21EE0 /* SecurityHelper.m */,
 			);

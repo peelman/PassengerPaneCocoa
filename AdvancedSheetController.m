@@ -16,4 +16,9 @@
 	[advancedHostsController loadAllHosts];
 }
 
+-(IBAction)closeAdvancedSheet:(id)sender
+{
+	[NSApp endSheet:[self advancedPanel]];
+}
+
 @end

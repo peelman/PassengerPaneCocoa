@@ -10,20 +10,58 @@
 
 @implementation ConfigurationController
 
-@synthesize configPanel, sitesDirectoryFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
+@synthesize configPanel, sitesPathFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
+@synthesize sitesPath, rubyPath, passengerPath, apacheModPath, apacheConfigPath;
 
--(void)checkConfiguration
+-(BOOL)checkSitesDirectoryConfig
 {
-	// Locate Config Dir
 	NSFileManager *fm = [NSFileManager defaultManager];
 	
-	BOOL isDir = NO;	
+	BOOL isDir = NO;
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
 	{
 		[statusText setStringValue:@"Config Directory Doesn't Exist"];
 		NSLog(@"%@",[statusText stringValue]);
-		return;
+		return NO;
 	}
+	[self setSitesPath:[SitesConfDir stringByDeletingLastPathComponent]];
+	[self setSitesPathFound:YES];;
+	return YES;
+}
+
+-(BOOL)checkRubyConfig
+{
+	return NO;
+}
+
+-(BOOL)checkPassengerConfig
+{
+	return NO;	
+}
+
+-(BOOL)checkPassengerLinked
+{
+	return NO;
+}
+
+-(BOOL)checkApacheMod
+{
+	return NO;
+}
+
+-(BOOL)checkApacheConfig
+{
+	return NO;
+}
+
+-(void)checkConfiguration
+{
+	NSFileManager *fm = [NSFileManager defaultManager];
+	BOOL isDir = NO;
+	
+	// Locate Config Dir
+	if (![self checkSitesDirectoryConfig])
+		return;
 	
 	// Locate Ruby
 	if (![fm fileExistsAtPath:RubyLocation])
@@ -66,6 +104,7 @@
 	}
 	
 	[statusText setStringValue:@""];
+	[g_passengerController setIsConfigured:YES];
 }
 
 -(void)configureApacheSites

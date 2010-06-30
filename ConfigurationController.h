@@ -23,20 +23,23 @@
 	IBOutlet NSButton *passengerLinkedCheckbox;
 	IBOutlet NSButton *passengerApacheModCheckbox;
 	IBOutlet NSButton *passengerApacheConfigCheckbox;
-	
-	IBOutlet NSPathControl *sitesDirectoryPathControl;
-	IBOutlet NSPathControl *rubyPathControl;
-	IBOutlet NSPathControl *passengerPathControl;
-	IBOutlet NSPathControl *passengerApacheModPathControl;
-	IBOutlet NSPathControl *passengerApacheConfigPathControl;
-	
+		
 	NSString *sitesPath, *rubyPath, *passengerPath, *apacheModPath, *apacheConfigPath;
 	
-	BOOL sitesDirectoryFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
+	BOOL sitesPathFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
 }
 
 @property (readonly) NSPanel *configPanel;
-@property BOOL sitesDirectoryFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
+@property (copy) NSString *sitesPath, *rubyPath, *passengerPath, *apacheModPath, *apacheConfigPath;
+@property BOOL sitesPathFound, rubyFound, passengerFound, passengerLinked, apacheModFound, apacheConfigured;
+
+-(BOOL)checkSitesDirectoryConfig;
+-(BOOL)checkRubyConfig;
+-(BOOL)checkPassengerConfig;
+-(BOOL)checkPassengerLinked;
+-(BOOL)checkApacheMod;
+-(BOOL)checkApacheConfig;
+
 
 -(void)checkConfiguration;
 -(void)configureApacheSites;

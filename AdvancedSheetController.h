@@ -21,4 +21,8 @@
 }
 @property (readonly) AdvancedHostsController *advancedHostsController;
 @property (readonly) NSPanel *advancedPanel;
+
+
+-(IBAction)closeAdvancedSheet:(id)sender;
+
 @end

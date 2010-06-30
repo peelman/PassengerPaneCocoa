@@ -53,14 +53,7 @@
 @property (retain) NSArrayController *sites;
 @property BOOL isAuthorized, hasSites, hasChanges, isConfigured;
 
--(void)checkConfiguration;
 -(void)loadSites;
--(void)configureApacheSites;
--(void)configurePassenger;
--(void)configureApache;
--(void)installPassenger;
--(void)createPassengerSymLink;
--(void)installPassengerApacheMod;
 
 -(AuthorizationRef)authRef;
 -(void)selectNameField:(NSTextField *)field;
@@ -70,11 +63,8 @@
 -(IBAction)removeSite:(id)sender;
 -(IBAction)openFileBrowser:(id)sender;
 -(IBAction)openSite:(id)sender;
--(IBAction)attemptConfiguration:(id)sender;
 -(IBAction)restartApache:(id)sender;
 -(IBAction)openAdvancedSheet:(id)sender;
--(IBAction)closeAdvancedSheet:(id)sender;
 -(IBAction)openConfigurationSheet:(id)sender;
--(IBAction)closeConfigurationSheet:(id)sender;
 -(IBAction)controlDidChange:(id)sender;
 @end
