@@ -49,7 +49,7 @@
 	[hasChangesImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 	[appHasChangesImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 	
-	[self checkConfiguration];
+	[configController checkConfiguration];
 	
 	if ([self isConfigured])
 		[self loadSites];
@@ -322,7 +322,7 @@
 	[self configureApacheSites];
 	[self configurePassenger];
 	[self configureApache];
-	[self checkConfiguration];
+	[configController checkConfiguration];
 	
 	if (isConfigured)
 		[PassengerApacheController restartApache:[self authRef]];

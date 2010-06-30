@@ -39,6 +39,7 @@ NSString * const InstallerLocation = @"/usr/sbin/installer";
 #pragma mark PassengerPaneCocoa Constants
 
 PassengerController *g_passengerController;
+NSBundle *paneBundle;
 
 NSString * const PPCBundleID = @"us.peelman.PassengerPaneCocoa";
 NSString * const PPCApacheConfigFile = @"httpd-passengerpanecocoa";

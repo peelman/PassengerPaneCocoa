@@ -22,7 +22,7 @@
 	IBOutlet SFAuthorizationView *authView;
 	
 	IBOutlet NSButton *saveButton;
-	IBOutlet NSButton *enableButton;
+	IBOutlet NSButton *enabledCheckbox;
 	IBOutlet NSButton *browseButton;
 	IBOutlet NSButton *openSiteButton;
 	IBOutlet NSButton *addSiteButton;
@@ -48,7 +48,6 @@
 	IBOutlet ConfigurationController *configController;
 	
 	BOOL isAuthorized, hasSites, hasChanges, isConfigured;
-	NSBundle *paneBundle;
 	
 }
 @property (retain) NSArrayController *sites;

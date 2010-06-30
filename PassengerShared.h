@@ -42,6 +42,7 @@ extern NSString * const InstallerLocation;
 #pragma mark -
 #pragma mark PassengerPaneCocoa Constants
 extern PassengerController * g_passengerController;
+extern NSBundle * paneBundle;
 extern NSString * const PPCBundleID;
 extern NSString * const PPCApacheConfigFile;
 extern NSString * const SitesConfDir;
