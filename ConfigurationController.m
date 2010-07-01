@@ -68,22 +68,48 @@
 
 -(BOOL)checkPassengerLinked
 {
-	return NO;
+	BOOL isDir = NO;
+	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
+	{
+		[statusText setStringValue:@"Passenger Not Linked"];
+		NSLog(@"%@", [statusText stringValue]);
+		return NO;
+	}
+	
+	[self setPassengerLinked:YES];
+	
+	return YES;
 }
 
 -(BOOL)checkApacheMod
 {
-	return NO;
+	if (![fm fileExistsAtPath:PassengerModuleLocation])
+	{
+		[statusText setStringValue:@"Passenger Apache Module Not Found"];
+		NSLog(@"%@",[statusText stringValue]);
+		return NO;
+	}
+	[self setApacheModPath:PassengerModuleLocation];
+	[self setApacheModFound:YES];
+	return YES;
 }
 
 -(BOOL)checkApacheConfig
 {
-	return NO;
+	NSString *configPath = [NSString stringWithFormat:@"%@%@.%@",ApacheConfDir, PPCApacheConfigFile, ConfExtension];
+	if (![fm fileExistsAtPath:configPath])
+	{
+		[statusText setStringValue:@"Apache Not Configured to run Passenger"];
+		NSLog(@"%@",[statusText stringValue]);
+		return NO;
+	}
+	[self setApacheConfigPath:configPath];
+	[self setApacheConfigured:YES];
+	return YES;
 }
 
 -(void)checkConfiguration
 {
-	BOOL isDir = NO;
 	
 	// Locate Config Dir
 	if (![self checkSitesDirectoryConfig])
@@ -98,28 +124,16 @@
 		return;
 	
 	// Locate Passsenger Link
-	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
-	{
-		[statusText setStringValue:@"Passenger Not Linked"];
-		NSLog(@"%@", [statusText stringValue]);
+	if (![self checkPassengerLinked])
 		return;
-	}
 	
 	// Locate Passenger Apache Module
-	if (![fm fileExistsAtPath:PassengerModuleLocation])
-	{
-		[statusText setStringValue:@"Passenger Apache Module Not Found"];
-		NSLog(@"%@",[statusText stringValue]);
+	if (![self checkApacheMod])
 		return;
-	}
 	
 	// Locate Passenger Apache Config File
-	if (![fm fileExistsAtPath:[NSString stringWithFormat:@"%@%@.%@",ApacheConfDir, PPCApacheConfigFile, ConfExtension]])
-	{
-		[statusText setStringValue:@"Apache Not Configured to run Passenger"];
-		NSLog(@"%@",[statusText stringValue]);
+	if (![self checkApacheConfig])
 		return;
-	}
 	
 	[statusText setStringValue:@""];
 	[g_passengerController setIsConfigured:YES];
