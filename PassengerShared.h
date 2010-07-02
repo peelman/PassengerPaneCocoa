@@ -37,6 +37,7 @@ extern NSString * const CpLocation;
 extern NSString * const MvLocation;
 extern NSString * const RmLocation;
 extern NSString * const MkdirLocation;
+extern NSString * const ChownLocation;
 extern NSString * const ChmodLocation;
 extern NSString * const InstallerLocation;
 
