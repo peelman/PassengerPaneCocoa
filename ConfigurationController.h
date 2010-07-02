@@ -44,6 +44,7 @@
 
 
 -(void)checkConfiguration;
+-(void)checkConfigurationAndAutoConfigure:(BOOL)autoConfig;
 -(void)configureApacheSites;
 -(void)configurePassenger;
 -(void)configureApache;

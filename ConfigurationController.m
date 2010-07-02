@@ -30,12 +30,18 @@
 	BOOL isDir = NO;
 	if (![fm fileExistsAtPath:SitesConfDir isDirectory:&isDir] || !isDir)
 	{
+		[self setSitesPath:@""];
+		[self setSitesPathFound:NO];
+		
 		[statusText setStringValue:@"Config Directory Doesn't Exist"];
 		NSLog(@"%@",[statusText stringValue]);
+
 		return NO;
 	}
+	
 	[self setSitesPath:SitesConfDir];
-	[self setSitesPathFound:YES];;
+	[self setSitesPathFound:YES];
+	
 	return YES;
 }
 
@@ -43,8 +49,12 @@
 {
 	if (![fm fileExistsAtPath:RubyLocation])
 	{
+		[self setRubyPath:@""];
+		[self setRubyFound:NO];
+		
 		[statusText setStringValue:@"Ruby Not Found"];
 		NSLog(@"%@",[statusText stringValue]);
+		
 		return NO;
 	}
 	
@@ -57,10 +67,15 @@
 {
 	if (![fm fileExistsAtPath:PassengerConfigTool])
 	{
+		[self setPassengerPath:@""];
+		[self setPassengerFound:NO];
+		
 		[statusText setStringValue:@"Passenger Not Found"];
 		NSLog(@"%@",[statusText stringValue]);
+		
 		return NO;
 	}
+	
 	[self setPassengerPath:[PassengerShared runTask:PassengerConfigTool withArgs:[NSArray arrayWithObjects:@"--root",nil]]];
 	[self setPassengerFound:YES];
 	return YES;
@@ -71,8 +86,11 @@
 	BOOL isDir = NO;
 	if (![fm fileExistsAtPath:PassengerCurrentVersDir isDirectory:&isDir] || !isDir)
 	{
+		[self setPassengerLinked:NO];
+		
 		[statusText setStringValue:@"Passenger Not Linked"];
 		NSLog(@"%@", [statusText stringValue]);
+		
 		return NO;
 	}
 	
@@ -85,10 +103,15 @@
 {
 	if (![fm fileExistsAtPath:PassengerModuleLocation])
 	{
+		[self setApacheModPath:@""];
+		[self setApacheModFound:NO];
+		
 		[statusText setStringValue:@"Passenger Apache Module Not Found"];
 		NSLog(@"%@",[statusText stringValue]);
+		
 		return NO;
 	}
+	
 	[self setApacheModPath:PassengerModuleLocation];
 	[self setApacheModFound:YES];
 	return YES;
@@ -99,10 +122,15 @@
 	NSString *configPath = [NSString stringWithFormat:@"%@%@.%@",ApacheConfDir, PPCApacheConfigFile, ConfExtension];
 	if (![fm fileExistsAtPath:configPath])
 	{
+		[self setApacheConfigPath:@""];
+		[self setApacheConfigured:NO];
+		
 		[statusText setStringValue:@"Apache Not Configured to run Passenger"];
 		NSLog(@"%@",[statusText stringValue]);
+		
 		return NO;
 	}
+	
 	[self setApacheConfigPath:configPath];
 	[self setApacheConfigured:YES];
 	return YES;
@@ -110,10 +138,23 @@
 
 -(void)checkConfiguration
 {
+	[self checkConfigurationAndAutoConfigure:NO];
+}
+
+-(void)checkConfigurationAndAutoConfigure:(BOOL)autoConfig
+{
+	[g_passengerController setIsConfigured:NO];
 	
 	// Locate Config Dir
 	if (![self checkSitesDirectoryConfig])
-		return;
+	{
+		if (autoConfig)
+		{
+			[self configureApacheSites];
+		} 
+		else
+			return;
+	}
 	
 	// Locate Ruby
 	if (![self checkRubyConfig])
@@ -121,19 +162,48 @@
 	
 	// Locate Passenger
 	if (![self checkPassengerConfig])
-		return;
+	{
+		if (autoConfig)
+		{
+			[self configurePassenger];
+		} else
+			return;
+	}
 	
 	// Locate Passsenger Link
 	if (![self checkPassengerLinked])
-		return;
+	{		
+		if (autoConfig) 
+		{
+			[self configurePassenger];
+		} 
+		else
+			return;		
+	}
 	
 	// Locate Passenger Apache Module
 	if (![self checkApacheMod])
-		return;
+	{
+		if (autoConfig) 
+		{
+			[self configurePassenger];
+		}
+		else
+			return;		
+	}
+
 	
 	// Locate Passenger Apache Config File
 	if (![self checkApacheConfig])
-		return;
+	{
+		if (autoConfig)
+		{
+			[self configureApache];
+		}
+		else
+			return;
+	}
+
 	
 	[statusText setStringValue:@""];
 	[g_passengerController setIsConfigured:YES];
@@ -262,10 +332,11 @@
 
 -(IBAction)attemptConfiguration:(id)sender
 {
-	[self configureApacheSites];
-	[self configurePassenger];
-	[self configureApache];
+	[self checkConfigurationAndAutoConfigure:YES];
 	[self checkConfiguration];
+//	[self configurePassenger];
+//	[self configureApache];
+//	[self checkConfiguration];
 	
 //	if (isConfigured)
 //		[PassengerApacheController restartApache:[g_passengerController authRef]];

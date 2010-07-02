@@ -132,6 +132,7 @@
 }
 -(IBAction)openConfigurationSheet:(id)sender
 {
+	[configController checkConfiguration];
 	[NSApp beginSheet:[configController configPanel] modalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 }
 
