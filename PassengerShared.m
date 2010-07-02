@@ -33,7 +33,7 @@ NSString * const CpLocation = @"/bin/cp";
 NSString * const MvLocation = @"/bin/mv";
 NSString * const RmLocation = @"/bin/rm";
 NSString * const MkdirLocation = @"/bin/mkdir";
-NSString * const ChmodLocation = @"/bin/chown";
+NSString * const ChownLocation = @"/bin/chown";
 NSString * const ChmodLocation = @"/bin/chmod";
 NSString * const InstallerLocation = @"/usr/sbin/installer";
 
