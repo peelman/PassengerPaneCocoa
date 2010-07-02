@@ -22,7 +22,7 @@
 @property (readonly) AdvancedHostsController *advancedHostsController;
 @property (readonly) NSPanel *advancedPanel;
 
-
+-(IBAction)uninstall:(id)sender;
 -(IBAction)closeAdvancedSheet:(id)sender;
 
 @end

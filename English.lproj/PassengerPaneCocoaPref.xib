@@ -3,16 +3,16 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">762</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
 		<string key="IBDocument.AppKitVersion">1038.29</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">762</string>
+			<string key="NS.object.0">740</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="101"/>
 			<integer value="655"/>
+			<integer value="101"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3637,6 +3637,14 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					</object>
 					<int key="connectionID">1018</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">uninstall:</string>
+						<reference key="source" ref="303278707"/>
+						<reference key="destination" ref="64502457"/>
+					</object>
+					<int key="connectionID">1019</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -4767,9 +4775,9 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<string key="110.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="118.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="119.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBEditorWindowLastContentRect">{{29, 698}, {644, 348}}</string>
+				<string key="12.IBEditorWindowLastContentRect">{{29, 408}, {644, 348}}</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBWindowTemplateEditedContentRect">{{29, 698}, {644, 348}}</string>
+				<string key="12.IBWindowTemplateEditedContentRect">{{29, 408}, {644, 348}}</string>
 				<integer value="1" key="12.ImportedFromIB2"/>
 				<integer value="1" key="12.windowTemplate.hasMinSize"/>
 				<string key="12.windowTemplate.minSize">{224.664, 10}</string>
@@ -4971,7 +4979,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1018</int>
+			<int key="maxID">1019</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4997,10 +5005,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<object class="IBPartialClassDescription">
 					<string key="className">AdvancedSheetController</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">closeAdvancedSheet:</string>
-						<string key="NS.object.0">id</string>
-					</object>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="closeAdvancedSheet:">id</string>
+						<string key="uninstall:">id</string>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="advancedCloseButton">NSButton</string>
 						<string key="advancedHostsController">AdvancedHostsController</string>
@@ -5667,7 +5675,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			</array>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1060" key="NS.object.0"/>
@@ -5679,12 +5686,5 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">../PassengerPaneCocoa.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="AlertNoteIcon">{128, 128}</string>
-			<string key="NSAddTemplate">{8, 8}</string>
-			<string key="NSRefreshTemplate">{10, 12}</string>
-			<string key="NSRemoveTemplate">{8, 8}</string>
-			<string key="NSSwitch">{15, 15}</string>
-		</dictionary>
 	</data>
 </archive>
