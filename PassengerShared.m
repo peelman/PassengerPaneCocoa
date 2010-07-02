@@ -33,11 +33,11 @@ NSString * const CpLocation = @"/bin/cp";
 NSString * const MvLocation = @"/bin/mv";
 NSString * const RmLocation = @"/bin/rm";
 NSString * const MkdirLocation = @"/bin/mkdir";
+NSString * const ChmodLocation = @"/bin/chmod";
 NSString * const InstallerLocation = @"/usr/sbin/installer";
 
 #pragma mark -
 #pragma mark PassengerPaneCocoa Constants
-
 PassengerController *g_passengerController;
 NSBundle *paneBundle;
 
@@ -48,6 +48,7 @@ NSString * const TempDir =  @"/private/tmp/";
 NSString * const PPCCreateLinkScriptName = @"passenger-create-link";
 NSString * const PPCInstallPassengerPackageName = @"install-passenger";
 NSString * const PPCInstallPassengerApacheModPackageName = @"install-passenger-apache-mod";
+
 #pragma mark -
 #pragma mark File Extension Constants
 NSString * const ConfExtension = @"conf";
