@@ -57,9 +57,12 @@
 	[outputBuffer release];
 	
 	NSArray *args = [NSArray arrayWithObjects:tempDestination, finalDestination, nil];
+
 	SecurityHelper *sh = [SecurityHelper sharedInstance];
 	[sh setAuthorizationRef:authRef];
-	[sh executeCommand:MvLocation withArgs:args];
+	[sh executeCommand:CpLocation withArgs:args];
+	
+	[[NSFileManager defaultManager] removeItemAtPath:tempDestination error:nil];
 	
 	[self setAppHasChanges:NO];
 	

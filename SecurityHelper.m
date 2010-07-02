@@ -45,21 +45,28 @@
 	{
 		while( i < [arguments count] && i < 19) 
 		{
-			args[i] = (char*)[[arguments objectAtIndex:i] UTF8String];
+			args[i] = (char*)[[arguments objectAtIndex:i] cStringUsingEncoding:NSUTF8StringEncoding];
 			i++;
 		}
 		args[i] = NULL;
 		FILE *channel;
 		channel = NULL;
-		
-		err = AuthorizationExecuteWithPrivileges(authorizationRef, [pathToCommand fileSystemRepresentation], 0, args, &channel);
-		
-		Boolean success;
-        char    thisLine[1024];
 
+		err = AuthorizationExecuteWithPrivileges(authorizationRef, [pathToCommand fileSystemRepresentation], 0, args, &channel);
+
+		Boolean success;
+        char thisLine[1024];
         do {
+			if (channel == NULL)
+				break;
+			
+			if (thisLine == NULL)
+				break;
+			
             success = (fgets(thisLine, sizeof(thisLine), channel) != NULL);
-            if ( ! success ) {
+			
+			if ( ! success )
+			{
                 break;
             }
 			
