@@ -21,6 +21,10 @@
 	[sh setAuthorizationRef:authRef];
 	[sh executeCommand:LaunchdLocation withArgs:apacheStopArgs];
 	[sh executeCommand:LaunchdLocation withArgs:apacheStartArgs];
+}
+
++(BOOL)isApacheRunning
+{
 	
 }
 

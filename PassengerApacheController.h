@@ -13,5 +13,6 @@
 }
 
 +(void)restartApache:(AuthorizationRef)authRef;
++(BOOL)isApacheRunning;
 
 @end
