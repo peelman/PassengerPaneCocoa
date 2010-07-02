@@ -21,7 +21,7 @@
 
 -(void)loadAllHosts;
 
--(IBAction)removeSelectedHost:(id)sender;
+-(IBAction)removeSelectedHosts:(id)sender;
 -(IBAction)reloadHosts:(id)sender;
 
 @end

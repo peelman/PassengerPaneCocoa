@@ -42,7 +42,7 @@
 	}
 	[hostsArray addObjects:allHosts];
 }
--(IBAction)removeSelectedHost:(id)sender
+-(IBAction)removeSelectedHosts:(id)sender
 {
 	for (id i in [hostsArray selectedObjects])
 	{
