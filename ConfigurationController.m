@@ -207,6 +207,7 @@
 	
 	[statusText setStringValue:@""];
 	[g_passengerController setIsConfigured:YES];
+	[g_passengerController loadSites];
 }
 
 -(void)configureApacheSites

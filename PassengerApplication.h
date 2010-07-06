@@ -21,6 +21,7 @@
 @property BOOL appIsActive, appHasChanges;
 @property AuthorizationRef authRef;
 
+-(void)loadConfigFromPath:(NSString *)p;
 -(void)saveConfig;
 -(void)deleteConfig;
 

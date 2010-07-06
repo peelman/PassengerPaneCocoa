@@ -29,6 +29,62 @@
 #pragma mark -
 #pragma mark File Operations
 
+-(void)loadConfigFromPath:(NSString *)p
+{
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSLog(@"Testing: %@",p);
+	if ([p isEqualToString:@""] || ![fm isReadableFileAtPath:[SitesConfDir stringByAppendingPathComponent:p]])
+		return;
+	
+	NSString *inputFile = [NSString stringWithContentsOfFile:[SitesConfDir stringByAppendingPathComponent:p] encoding:NSUTF8StringEncoding error:nil];
+	
+	NSArray *fileLines = [inputFile componentsSeparatedByString:@"\r\n"];
+	
+	if (fileLines == nil)
+	{
+		NSLog(@"Invalid config file at path: %@",[SitesConfDir stringByAppendingPathComponent:p]);
+		return;
+	}
+	
+	[self setFilename:p];
+	
+	NSScanner *scan;
+	
+	// Extract the name, type, and value from each line and load into ivars
+	
+	for ( NSString *line in fileLines )
+	{
+		if ([line hasPrefix:@"#PassengerPane SiteName"])
+		{
+			NSArray *array = [line componentsSeparatedByString:@" "];
+			
+			if (![[array lastObject] isEqualToString:@""])
+				[self setName:[array lastObject]];
+		}
+		
+		if ([line hasPrefix:@"ServerName"])
+		{
+			NSArray *array = [line componentsSeparatedByString:@" "];
+			
+			if (![[array lastObject] isEqualToString:@""])
+			{
+				[self setAddress:[array lastObject]];
+				[HostsController createHost:[array lastObject] withAuthRef:authRef];			
+			}
+		}
+		
+		if ([line hasPrefix:@"DocumentRoot"])
+		{
+			NSArray *array = [line componentsSeparatedByString:@" "];
+			
+			if (![[array lastObject] isEqualToString:@""])
+				[self setPath:[array lastObject]];
+		}
+		
+	 }
+	 [self setAppHasChanges:NO];	
+}
+
 -(void)saveConfig
 {
 	if ([filename isEqualToString:@""])

@@ -50,9 +50,6 @@
 	[appHasChangesImage setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 	
 	[configController checkConfiguration];
-	
-	if ([self isConfigured])
-		[self loadSites];
 }
 
 #pragma mark -
@@ -60,6 +57,30 @@
 
 -(void)loadSites
 {
+	[sites removeObjects:[sites arrangedObjects]];
+	
+	NSArray *configs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:SitesConfDir error:nil];
+	
+	for (NSString *config in configs)
+	{
+		if ([config hasSuffix:ConfExtension])
+		{
+			PassengerApplication *pa = [[PassengerApplication alloc] init];
+			[pa loadConfigFromPath:config];
+			[pa setAppIsActive:YES];
+			[sites addObject:pa];
+			[pa release];
+		}
+		
+		if ([config hasSuffix:DisabledExtension])
+		{
+			PassengerApplication *pa = [[PassengerApplication alloc] init];
+			[pa loadConfigFromPath:config];
+			[pa setAppIsActive:NO];
+			[sites addObject:pa];
+			[pa release];
+		}
+	}
 
 }
 
