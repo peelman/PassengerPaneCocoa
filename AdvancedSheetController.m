@@ -21,7 +21,7 @@
 	NSAlert *alert = [NSAlert alertWithMessageText:@"Confirm" defaultButton:@"OK" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"Are you sure you wish to uninstall?"];
 	[alert setShowsSuppressionButton:YES];
 	[alert setAlertStyle:NSWarningAlertStyle];
-	NSInteger *alertReturn = [alert runModal];
+	NSInteger alertReturn = [alert runModal];
 }
 
 -(IBAction)closeAdvancedSheet:(id)sender
