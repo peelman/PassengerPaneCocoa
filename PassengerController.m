@@ -138,11 +138,30 @@
 
 -(IBAction)openFileBrowser:(id)sender
 {
+	NSOpenPanel *op = [NSOpenPanel openPanel];
+
+	[op setCanChooseFiles:NO];
+	[op setCanChooseDirectories:YES];
+	[op setCanCreateDirectories:NO];
+	[op setAllowsMultipleSelection:NO];
+	[op setTitle:@"Select public folder"];
+	[op setPrompt:NSLocalizedString(@"Select","Controller -> Open Directory Panel Prompt")];
 	
+	[op beginSheetForDirectory:[NSSearchPathForDirectoriesInDomains(NSUserDirectory, NSUserDomainMask, YES) lastObject]
+						  file:nil 
+						 types:nil 
+				modalForWindow:[NSApp mainWindow]
+				 modalDelegate:self 
+				didEndSelector:@selector(fileBrowserClosed: returnCode: contextInfo:)
+				   contextInfo:nil];
 }
 
 -(IBAction)openSite:(id)sender
 {
+	PassengerApplication *pa = [[sites selectedObjects] lastObject];
+	NSString *hostname = [pa address];
+	NSURL *url = [NSURL URLWithString:[@"http://" stringByAppendingString:hostname]];
+	[[NSWorkspace sharedWorkspace] openURL:url];
 	
 }
 
@@ -167,6 +186,20 @@
 {
 	[self controlTextDidChange:nil];
 }
+
+#pragma mark -
+#pragma mark File Brower Panel
+- (void)fileBrowserClosed:(NSOpenPanel *)openPanel returnCode:(int)code contextInfo:(void *)info
+{
+	NSString *path = @"";
+	if (code == NSOKButton)
+	{		
+		path = [[openPanel filenames] objectAtIndex: 0];
+		PassengerApplication *pa = [[sites selectedObjects] lastObject];
+		[pa setPath:path];		
+	}
+}
+
 
 #pragma mark -
 #pragma mark SFAuthorizationView Delegate Methods

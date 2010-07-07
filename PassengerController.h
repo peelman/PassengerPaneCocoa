@@ -67,4 +67,7 @@
 -(IBAction)openAdvancedSheet:(id)sender;
 -(IBAction)openConfigurationSheet:(id)sender;
 -(IBAction)controlDidChange:(id)sender;
+
+- (void)fileBrowserClosed:(NSOpenPanel *)openPanel returnCode:(int)code contextInfo:(void *)info;
+
 @end
