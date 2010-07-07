@@ -20,6 +20,11 @@ NSString * const ApacheLocation = @"/usr/sbin/httpd";
 NSString * const ApacheConfDir = @"/private/etc/apache2/other/";
 
 #pragma mark -
+#pragma mark Apache / Passenger Configuration Constants
+NSString * const RailsEnvDev = @"development";
+NSString * const RailsEnvProd = @"production";
+
+#pragma mark -
 #pragma mark Ruby and Passenger Constants
 NSString * const RubyLocation = @"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby";
 NSString * const PassengerConfigTool = @"/usr/bin/passenger-config";

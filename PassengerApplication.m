@@ -22,6 +22,7 @@
 	[self setAppHasChanges:YES];
 	[self setPort:@"80"];
 	[self setAuthRef:NULL];
+	[self setRakeMode:[NSNumber numberWithInt:0]];
 	
 	return self;
 }
@@ -96,6 +97,17 @@
 	NSString *tempDestination = [TempDir stringByAppendingPathComponent:filename];
 	NSString *finalDestination = [SitesConfDir stringByAppendingPathComponent:filename];
 	
+	NSString *railsEnv;
+	switch ([rakeMode intValue]) {
+		case 0:
+			railsEnv = RailsEnvProd;
+			break;
+		case 1:
+			railsEnv = RailsEnvDev;
+		default:
+			break;
+	}
+	
 	NSLog(@"Attempting to save %@ to filename: %@", name, filename);
 	NSMutableString *outputBuffer = [[NSMutableString alloc] init];
 	
@@ -103,6 +115,7 @@
 	[outputBuffer appendString:[NSString stringWithFormat:@"<VirtualHost %@:80>\r\n", address]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"ServerName %@\r\n", address]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@\r\n", path]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"RailsEnv %@\r\n", railsEnv]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"<Directory %@>\r\n", path]];
 	[outputBuffer appendString:@"\tAllowOverride all\r\n\tOptions -MultiViews\r\n"];
 	[outputBuffer appendString:@"\tOrder deny,allow\r\n\tAllow from all\r\n"];

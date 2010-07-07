@@ -367,7 +367,7 @@ QXBwbGUgQ29tcHV0ZXIsIEluYy4sIDIwMDUAAAAAA</bytes>
 											</array>
 											<string key="NSCellSize">{121, 19}</string>
 											<string key="NSIntercellSpacing">{5, 2}</string>
-											<int key="NSMatrixFlags">1168646144</int>
+											<int key="NSMatrixFlags">1151868928</int>
 											<string key="NSCellClass">NSActionCell</string>
 											<object class="NSButtonCell" key="NSProtoCell" id="81842333">
 												<int key="NSCellFlags">67239424</int>

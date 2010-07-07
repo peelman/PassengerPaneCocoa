@@ -24,6 +24,11 @@ extern NSString * const ApacheRestartCommand;
 extern NSString * const ApacheConfDir;
 
 #pragma mark -
+#pragma mark Apache / Passenger Configuration Constants
+extern NSString * const RailsEnvDev;
+extern NSString * const RailsEnvProd;
+
+#pragma mark -
 #pragma mark Ruby and Passenger Constants
 extern NSString * const RubyLocation;
 extern NSString * const PassengerConfigTool;
