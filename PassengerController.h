@@ -63,6 +63,7 @@
 -(IBAction)removeSite:(id)sender;
 -(IBAction)openFileBrowser:(id)sender;
 -(IBAction)openSite:(id)sender;
+-(IBAction)restartSite:(id)sender;
 -(IBAction)restartApache:(id)sender;
 -(IBAction)openAdvancedSheet:(id)sender;
 -(IBAction)openConfigurationSheet:(id)sender;

@@ -165,6 +165,12 @@
 	
 }
 
+-(IBAction)restartSite:(id)sender
+{
+	PassengerApplication *pa = [[sites selectedObjects] lastObject];
+	[pa restart];
+}
+
 -(IBAction)restartApache:(id)sender
 {
 	[PassengerApacheController restartApache:[self authRef]];

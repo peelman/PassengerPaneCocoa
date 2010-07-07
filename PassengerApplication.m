@@ -27,6 +27,18 @@
 	return self;
 }
 
+-(void)restart
+{
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSString *tmpPath = [path stringByAppendingString:@"tmp"];
+	
+	if (![fm fileExistsAtPath:tmpPath])
+		[fm createDirectoryAtPath:tmpPath withIntermediateDirectories:NO attributes:nil error:nil];
+	
+	[PassengerShared runTask:@"/usr/bin/touch" withArgs:[NSArray arrayWithObject:[tmpPath stringByAppendingPathComponent:@"restart.txt"]]];
+	
+}
+
 #pragma mark -
 #pragma mark File Operations
 
@@ -79,9 +91,23 @@
 			NSArray *array = [line componentsSeparatedByString:@" "];
 			
 			if (![[array lastObject] isEqualToString:@""])
-				[self setPath:[array lastObject]];
+			{
+				NSString *pathToLoad = [[array lastObject] stringByDeletingLastPathComponent];
+				[self setPath:pathToLoad];				
+			}
+
 		}
 		
+		if ([line hasPrefix:@"RailsEnv"])
+		{
+			NSArray *array = [line componentsSeparatedByString:@" "];
+			
+			if (![[array lastObject] isEqualToString:@"production"])
+				[self setRakeMode:[NSNumber numberWithInt:0]];
+			else
+				[self setRakeMode:[NSNumber numberWithInt:1]];
+
+		}
 	 }
 	 [self setAppHasChanges:NO];	
 }
@@ -114,9 +140,9 @@
 	[outputBuffer appendString:[NSString stringWithFormat:@"#PassengerPane SiteName %@\r\n", name]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"<VirtualHost %@:80>\r\n", address]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"ServerName %@\r\n", address]];
-	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@\r\n", path]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@/public\r\n"]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"RailsEnv %@\r\n", railsEnv]];
-	[outputBuffer appendString:[NSString stringWithFormat:@"<Directory %@>\r\n", path]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"<Directory %@/public>\r\n", path]];
 	[outputBuffer appendString:@"\tAllowOverride all\r\n\tOptions -MultiViews\r\n"];
 	[outputBuffer appendString:@"\tOrder deny,allow\r\n\tAllow from all\r\n"];
 	[outputBuffer appendString:@"</Directory>\r\n</VirtualHost>\r\n"];
