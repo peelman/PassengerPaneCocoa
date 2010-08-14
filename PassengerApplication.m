@@ -140,7 +140,7 @@
 	[outputBuffer appendString:[NSString stringWithFormat:@"#PassengerPane SiteName %@\r\n", name]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"<VirtualHost %@:80>\r\n", address]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"ServerName %@\r\n", address]];
-	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@/public\r\n"]];
+	[outputBuffer appendString:[NSString stringWithFormat:@"DocumentRoot %@/public\r\n", path]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"RailsEnv %@\r\n", railsEnv]];
 	[outputBuffer appendString:[NSString stringWithFormat:@"<Directory %@/public>\r\n", path]];
 	[outputBuffer appendString:@"\tAllowOverride all\r\n\tOptions -MultiViews\r\n"];
